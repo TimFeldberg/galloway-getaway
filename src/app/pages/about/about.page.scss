@@ -1,0 +1,54 @@
+.about-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.copy {
+  p {
+    max-width: 56ch;
+  }
+}
+
+.image {
+  margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.milestone {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  span {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0.9rem 0 0.5rem;
+    font-size: clamp(1.3rem, 1.8vw, 1.9rem);
+  }
+}
+
+@media (max-width: 992px) {
+  .about-hero,
+  .timeline {
+    grid-template-columns: 1fr;
+  }
+}

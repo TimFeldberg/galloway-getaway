@@ -1,0 +1,58 @@
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+
+<header class="site-header"
+  [class.scrolled]="scrolled() && !headerHovered()"
+  (mouseenter)="onHeaderEnter()"
+  (mouseleave)="onHeaderLeave()">
+  <a routerLink="/" class="brand" [attr.aria-label]="brand.name + ' Startseite'">
+    <span class="brand-word brand-word--left">Galloway</span>
+    <img
+      class="brand-logo"
+      src="/logo_fixed.png"
+      [alt]="brand.name + ' Logo'"
+    />
+    <span class="brand-word brand-word--right">Getaway</span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Navigation öffnen"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="toggleMenu()"
+  >
+    Menü
+  </button>
+
+  <nav class="site-nav" [class.open]="menuOpen()" aria-label="Hauptnavigation">
+    @for (item of navItems; track item.href) {
+      <a
+        [routerLink]="item.href"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.href === '/' }"
+        (click)="closeMenu()"
+      >
+        {{ item.label }}
+      </a>
+    }
+  </nav>
+</header>
+
+<main id="main-content" class="page-shell" [@routeTransition]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet" />
+</main>
+
+<footer class="site-footer">
+  <div>
+    <p>{{ brand.shortTagline }}</p>
+    <small>© {{ 2026 }} {{ brand.name }} · {{ brand.footerNote }}</small>
+  </div>
+
+  <nav aria-label="Rechtliches" class="footer-links">
+    <a routerLink="/impressum">Impressum</a>
+    <a routerLink="/datenschutz">Datenschutz</a>
+    <a routerLink="/cookie-hinweis">Cookie-Hinweis</a>
+  </nav>
+</footer>
+
+<app-cookie-consent></app-cookie-consent>

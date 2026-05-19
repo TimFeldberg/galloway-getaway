@@ -1,0 +1,62 @@
+<section class="section container calendar-page">
+  <div class="product-layout">
+    <article class="product-copy" appReveal="left">
+      <p class="text-label">{{ content.eyebrow }}</p>
+      <h1>{{ content.heading }}</h1>
+      <p>{{ content.description }}</p>
+
+      <ul class="feature-list">
+        @for (feature of features; track feature) {
+          <li>{{ feature }}</li>
+        }
+      </ul>
+
+      <div class="purchase-box">
+        <div>
+          <span class="text-label">{{ content.priceLabel }}</span>
+          <strong>{{ unitPrice | currency: 'EUR' }}</strong>
+        </div>
+
+        <div class="quantity-controls" aria-label="Menge auswählen">
+          <button type="button" (click)="decreaseQuantity()">−</button>
+          <span>{{ quantity() }}</span>
+          <button type="button" (click)="increaseQuantity()">+</button>
+        </div>
+
+        <div class="summary">
+          <span>{{ content.totalLabel }}</span>
+          <strong>{{ total() | currency: 'EUR' }}</strong>
+        </div>
+
+        <button class="btn" type="button" (click)="buyNow()"><span>{{ content.buyLabel }}</span></button>
+
+        @if (purchaseTriggered()) {
+          <p class="purchase-note">{{ content.successMessage }}</p>
+        }
+      </div>
+    </article>
+
+    <article class="preview-panel" appReveal="right">
+      <div class="controls">
+        <button type="button" (click)="prevMonth()">←</button>
+        <strong>{{ activeMonth().month }}</strong>
+        <button type="button" (click)="nextMonth()">→</button>
+      </div>
+
+      <div class="preview-card" [@previewSwap]="previewIndex()">
+        <img
+          [ngSrc]="activeMonth().image"
+          width="1000"
+          height="1280"
+          [alt]="content.previewAlt"
+          priority
+        />
+        <div class="preview-meta">
+          <p class="text-label">{{ activeMonth().month }}</p>
+          <h2>{{ activeMonth().title }}</h2>
+          <p>{{ activeMonth().text }}</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

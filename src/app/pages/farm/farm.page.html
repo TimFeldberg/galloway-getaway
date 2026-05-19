@@ -1,0 +1,31 @@
+<section class="section container">
+  <div appReveal="up">
+    <p class="text-label">{{ content.eyebrow }}</p>
+    <h1>{{ content.heading }}</h1>
+  </div>
+
+  <div class="farm-layout">
+    <aside class="animal-list" appReveal="left">
+      @for (animal of animals; track animal.name; let i = $index) {
+        <button type="button" (click)="setAnimal(i)" [class.active]="i === activeAnimal()">
+          <span>{{ animal.name }}</span>
+          <small>{{ animal.age }}</small>
+        </button>
+      }
+    </aside>
+
+    <article class="animal-card" appReveal="scale">
+      <img
+        [ngSrc]="animals[activeAnimal()].image"
+        width="1200"
+        height="780"
+        [alt]="animals[activeAnimal()].name"
+        priority
+      />
+      <div class="meta">
+        <h2>{{ animals[activeAnimal()].name }}</h2>
+        <p>{{ animals[activeAnimal()].detail }}</p>
+      </div>
+    </article>
+  </div>
+</section>

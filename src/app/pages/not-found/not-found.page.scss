@@ -1,0 +1,42 @@
+:host {
+	display: block;
+	min-height: calc(100dvh - 152px);
+	background:
+		radial-gradient(circle at top left, rgba(200, 230, 160, 0.16), transparent 34%),
+		linear-gradient(180deg, rgba(245, 240, 234, 0.92), rgba(236, 225, 210, 0.72));
+}
+
+.not-found {
+	display: grid;
+	place-items: start;
+	gap: 1rem;
+	padding-block: clamp(5rem, 12vw, 9rem);
+	max-width: 48rem;
+
+	.eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		font-size: 0.78rem;
+		color: #7c6246;
+	}
+
+	.brand-mark {
+		text-transform: uppercase;
+		letter-spacing: 0.22em;
+		font-size: 0.82rem;
+		font-weight: 700;
+		color: #1a1a1a;
+	}
+
+	h1 {
+		font-size: clamp(2.4rem, 6vw, 4.8rem);
+		line-height: 0.95;
+		max-width: 12ch;
+	}
+
+	p:last-of-type {
+		max-width: 40rem;
+		font-size: 1.08rem;
+		color: #4f4337;
+	}
+}

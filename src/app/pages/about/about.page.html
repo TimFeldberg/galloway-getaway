@@ -1,0 +1,30 @@
+<section class="section container about-hero">
+  <div class="copy" appReveal="left">
+    <p class="text-label">{{ content.eyebrow }}</p>
+    <h1>{{ content.heading }}</h1>
+    <p>{{ content.text }}</p>
+  </div>
+  <figure class="image" appReveal="right">
+    <img
+      [ngSrc]="content.image"
+      width="1100"
+      height="800"
+      [alt]="content.imageAlt"
+      priority
+      appParallax="0.1"
+    />
+  </figure>
+</section>
+
+<section class="section container">
+  <p class="text-label" appReveal="up">{{ content.timelineEyebrow }}</p>
+  <div class="timeline">
+    @for (item of milestones; track item.year) {
+      <article class="milestone" appReveal="up">
+        <span>{{ item.year }}</span>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.text }}</p>
+      </article>
+    }
+  </div>
+</section>

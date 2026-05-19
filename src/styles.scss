@@ -1,0 +1,180 @@
+@use 'styles/variables' as *;
+@use 'styles/typography';
+@use 'styles/mixins' as *;
+
+// ============================================================
+// Global Reset & Base
+// ============================================================
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: $color-bg;
+  color: $color-ink;
+  font-family: $font-sans;
+  line-height: $lh-normal;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: $color-ink;
+  color: $color-bg;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: $color-bg; }
+::-webkit-scrollbar-thumb { background: $color-ink-muted; border-radius: 3px; }
+
+// ============================================================
+// Layout Utilities
+// ============================================================
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $space-xl;
+
+  @include respond-to(lg) { padding: 0 $space-lg; }
+  @include respond-to(md) { padding: 0 $space-md; }
+}
+
+.section { @include section-padding; }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-xl;
+
+  @include respond-to(md) { grid-template-columns: 1fr; }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-lg;
+
+  @include respond-to(lg) { grid-template-columns: repeat(2, 1fr); }
+  @include respond-to(sm) { grid-template-columns: 1fr; }
+}
+
+// ============================================================
+// Buttons
+// ============================================================
+
+.btn {
+  @include btn-base;
+  padding: $space-md $space-lg;
+  background: $color-ink;
+  color: $color-white;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $color-bg;
+    transform: translateX(-101%);
+    transition: transform $transition-slow;
+  }
+
+  &:hover {
+    opacity: 1;
+    color: $color-ink;
+    &::before { transform: translateX(0); }
+  }
+
+  span { position: relative; z-index: 1; }
+}
+
+.btn-outline {
+  @include btn-base;
+  padding: $space-md $space-lg;
+  background: transparent;
+  color: $color-ink;
+  border: 1px solid $color-ink;
+
+  &:hover {
+    background: $color-ink;
+    color: $color-white;
+    opacity: 1;
+  }
+}
+
+.btn-ghost {
+  @include btn-base;
+  padding: $space-sm 0;
+  background: transparent;
+  color: $color-white;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+
+  &:hover {
+    border-bottom-color: $color-white;
+    opacity: 1;
+  }
+}
+
+// ============================================================
+// Scroll Reveal
+// ============================================================
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+              transform 0.8s cubic-bezier(0.16,1,0.3,1);
+
+  &.in-view { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+              transform 0.9s cubic-bezier(0.16,1,0.3,1);
+
+  &.in-view { opacity: 1; transform: translateX(0); }
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+              transform 0.9s cubic-bezier(0.16,1,0.3,1);
+
+  &.in-view { opacity: 1; transform: translateX(0); }
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+              transform 0.8s cubic-bezier(0.16,1,0.3,1);
+
+  &.in-view { opacity: 1; transform: scale(1); }
+}
+
+.stagger > * {
+  @for $i from 1 through 12 {
+    &:nth-child(#{$i}) { transition-delay: #{($i - 1) * 0.1}s; }
+  }
+}
+
+router-outlet + * { display: block; }

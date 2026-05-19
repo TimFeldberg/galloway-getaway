@@ -1,0 +1,52 @@
+<section class="hero">
+  <video
+    class="hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    [attr.aria-label]="content.hero.videoLabel"
+    [poster]="content.hero.posterUrl"
+  >
+    <source [src]="content.hero.videoUrl" type="video/mp4" />
+  </video>
+
+  <div class="hero-content container">
+    <p class="text-label hero-line">{{ content.hero.eyebrow }}</p>
+    <h1>
+      @for (line of content.hero.lines; track line) {
+        <span class="hero-line">{{ line }}</span>
+      }
+    </h1>
+    <div class="hero-cta">
+      <a class="btn" routerLink="/shop"><span>{{ content.hero.ctaPrimary }}</span></a>
+      <a class="btn-outline" routerLink="/partnerschaften">{{ content.hero.ctaSecondary }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="intro" appReveal="up">
+    <p class="text-label">{{ content.intro.eyebrow }}</p>
+    <h2>{{ content.intro.heading }}</h2>
+  </div>
+
+  <div class="story-grid">
+    @for (highlight of highlights; track highlight.title) {
+      <article class="story-block" appReveal="scale">
+        <div class="media-wrap">
+          <img
+            [ngSrc]="highlight.image"
+            width="900"
+            height="640"
+            [alt]="highlight.title"
+            loading="lazy"
+            appParallax="0.08"
+          />
+        </div>
+        <h3>{{ highlight.title }}</h3>
+        <p>{{ highlight.text }}</p>
+      </article>
+    }
+  </div>
+</section>

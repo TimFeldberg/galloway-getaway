@@ -1,0 +1,25 @@
+<section class="section container">
+  <div class="shop-head" appReveal="up">
+    <div>
+      <p class="text-label">{{ content.eyebrow }}</p>
+      <h1>{{ content.heading }}</h1>
+    </div>
+    <div class="cart-pill" aria-live="polite">{{ content.cartLabel }}: {{ cartCount() }} · {{ subtotal() | currency: 'EUR' }}</div>
+  </div>
+
+  <div class="product-grid">
+    @for (product of products; track product.name) {
+      <article class="product" appReveal="scale">
+        <img [ngSrc]="product.image" width="900" height="600" [alt]="product.name" loading="lazy" />
+        <div class="content">
+          <h2>{{ product.name }}</h2>
+          <p>{{ product.description }}</p>
+          <div class="foot">
+            <strong>{{ product.price | currency: 'EUR' }}</strong>
+            <button class="btn-outline" type="button" (click)="addToCart(product.price)">{{ content.addToCartLabel }}</button>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

@@ -1,0 +1,17 @@
+{
+  "name": "Galloway Getaway",
+  "short_name": "Galloway",
+  "description": "Natürlich. Hochwertig. Erlebbar.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f5f0ea",
+  "theme_color": "#f5f0ea",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

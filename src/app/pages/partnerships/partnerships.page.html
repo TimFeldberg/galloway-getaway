@@ -1,0 +1,36 @@
+<section class="section container partnerships">
+  <div class="pitch" appReveal="left">
+    <p class="text-label">{{ content.eyebrow }}</p>
+    <h1>{{ content.heading }}</h1>
+    <ul>
+      @for (benefit of benefits; track benefit) {
+        <li>{{ benefit }}</li>
+      }
+    </ul>
+  </div>
+
+  <form class="partner-form" [formGroup]="form" (ngSubmit)="submit()" appReveal="right" novalidate>
+    <label>
+      {{ content.formLabels.name }}
+      <input type="text" formControlName="name" />
+    </label>
+    <label>
+      {{ content.formLabels.company }}
+      <input type="text" formControlName="company" />
+    </label>
+    <label>
+      {{ content.formLabels.email }}
+      <input type="email" formControlName="email" />
+    </label>
+    <label>
+      {{ content.formLabels.message }}
+      <textarea rows="4" formControlName="message"></textarea>
+    </label>
+
+    <button class="btn" type="submit"><span>{{ content.formLabels.submit }}</span></button>
+
+    @if (sent()) {
+      <p class="success">{{ content.formLabels.success }}</p>
+    }
+  </form>
+</section>

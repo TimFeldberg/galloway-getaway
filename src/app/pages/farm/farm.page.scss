@@ -1,0 +1,62 @@
+.farm-layout {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1.2rem;
+}
+
+.animal-list {
+  display: grid;
+  gap: 0.75rem;
+
+  button {
+    text-align: left;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: transparent;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.35s ease;
+
+    &.active,
+    &:hover {
+      background: #0d0d0d;
+      color: #f5f0ea;
+    }
+
+    span,
+    small {
+      display: block;
+    }
+
+    small {
+      opacity: 0.75;
+      margin-top: 0.3rem;
+    }
+  }
+}
+
+.animal-card {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.06);
+  }
+
+  .meta {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .farm-layout {
+    grid-template-columns: 1fr;
+  }
+}
