@@ -92,6 +92,24 @@ h1 {
 
 @media (max-width: 992px) {
   .story-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .media-wrap {
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .story-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding-bottom: 2.5rem;
+  }
+
+  .media-wrap {
+    height: 180px;
   }
 }

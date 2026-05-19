@@ -37,7 +37,6 @@
 		height: 70px;
 		background: rgba(165, 130, 95, 0.75);
 		justify-content: center;
-		position: sticky;
 
 		.brand {
 			position: absolute;
@@ -225,6 +224,31 @@
 
 		&.open {
 			display: flex;
+		}
+	}
+
+	// Scrolled state on mobile: keep hamburger menu reachable
+	.site-header.scrolled {
+		.menu-toggle {
+			opacity: 1;
+			pointer-events: auto;
+			position: absolute;
+			right: 2rem;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.brand-logo {
+			height: 60px;
+		}
+
+		.site-nav.open {
+			opacity: 1;
+			pointer-events: auto;
+			position: static;
+			right: auto;
+			top: auto;
+			flex-basis: 100%;
 		}
 	}
 }
