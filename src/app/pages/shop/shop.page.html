@@ -4,7 +4,7 @@
       <p class="text-label">{{ content.eyebrow }}</p>
       <h1>{{ content.heading }}</h1>
     </div>
-    <div class="cart-pill" aria-live="polite">{{ content.cartLabel }}: {{ cartCount() }} · {{ subtotal() | currency: 'EUR' }}</div>
+    <div class="cart-pill" aria-live="polite">{{ content.cartLabel }}: {{ cartCount() }} · {{ subtotal() | currency: 'USD' }}</div>
   </div>
 
   <div class="product-grid">
@@ -15,7 +15,7 @@
           <h2>{{ product.name }}</h2>
           <p>{{ product.description }}</p>
           <div class="foot">
-            <strong>{{ product.price | currency: 'EUR' }}</strong>
+            <strong>{{ product.price | currency: 'USD' }}</strong>
             <button class="btn-outline" type="button" (click)="addToCart(product.price)">{{ content.addToCartLabel }}</button>
           </div>
         </div>

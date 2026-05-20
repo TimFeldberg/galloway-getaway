@@ -37,7 +37,7 @@ export class HomePage implements AfterViewInit, OnDestroy {
         ease: 'power4.out'
       });
 
-      gsap.from('.hero-cta .btn', {
+      gsap.from('.hero-cta .btn, .hero-cta .btn-outline', {
         y: 20,
         opacity: 0,
         duration: 0.85,

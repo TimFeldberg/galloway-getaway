@@ -202,10 +202,21 @@
 @media (max-width: 980px) {
 	.site-header {
 		flex-wrap: wrap;
+		height: auto;
+		min-height: 70px;
+		padding: 0 1.25rem;
 	}
 
 	.brand {
 		margin-right: 0;
+
+		.brand-logo {
+			height: 48px;
+		}
+
+		.brand-word {
+			display: none;
+		}
 	}
 
 	.menu-toggle {
@@ -229,17 +240,19 @@
 
 	// Scrolled state on mobile: keep hamburger menu reachable
 	.site-header.scrolled {
+		height: auto;
+		min-height: 60px;
+
 		.menu-toggle {
 			opacity: 1;
 			pointer-events: auto;
-			position: absolute;
-			right: 2rem;
-			top: 50%;
-			transform: translateY(-50%);
+			position: static;
+			transform: none;
+			margin-left: auto;
 		}
 
 		.brand-logo {
-			height: 60px;
+			height: 48px;
 		}
 
 		.site-nav.open {

@@ -43,6 +43,17 @@ h1 {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
+
+  .btn-outline {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.65);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border-color: #ffffff;
+    }
+  }
 }
 
 .intro {

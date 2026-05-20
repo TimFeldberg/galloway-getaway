@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Replace the domain placeholder in the Sitemap URL with the value from src/environments/environment.prod.ts
-Sitemap: https://YOUR-DOMAIN-HERE/sitemap.xml
+Sitemap: https://galloway-getaway.netlify.app/sitemap.xml
