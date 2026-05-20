@@ -43,10 +43,8 @@ export const siteContent = {
       lines: ['Natur als Bühne.', 'Qualität als Haltung.', 'Erlebnis als Marke.'],
       ctaPrimary: 'Jetzt einkaufen',
       ctaSecondary: 'Partnerschaft starten',
-      videoUrl:
-        'https://player.vimeo.com/external/434045526.sd.mp4?s=6e1545f1a81e7394f22f8b44e2f6cded5f3f4af4&profile_id=165',
-      posterUrl: '/IMG_8865.JPG',
-      videoLabel: 'Galloway-Rinder auf der Weide'
+      imageUrl: '/media/hero.jpg',
+      imageAlt: 'Galloway-Rinder auf der Weide bei Galloway Getaway'
     },
     intro: {
       eyebrow: 'Scroll Storytelling',
@@ -56,17 +54,17 @@ export const siteContent = {
       {
         title: 'Natürliche Haltung',
         text: 'Unsere Galloways leben ganzjährig auf offenen Weiden in ruhiger, artgerechter Umgebung.',
-        image: '/IMG_8865.JPG'
+        image: '/media/highlight-nature.jpg'
       },
       {
         title: 'Premium Qualität',
         text: 'Kurze Wege und kompromisslose Qualität für Tier-Snacks, Pflegeprodukte und Farm-Specials.',
-        image: '/IMG_8867.JPG'
+        image: '/media/feature.jpg'
       },
       {
         title: 'Erlebnis vor Ort',
         text: 'Geführte Farm-Erlebnisse, saisonale Highlights und unser kaufbarer Premium-Kalender machen die Marke erlebbar.',
-        image: '/IMG_8866.JPG'
+        image: '/media/highlight-experience.jpg'
       }
     ]
   },
@@ -78,8 +76,8 @@ export const siteContent = {
     heading: 'Von der Weide zum Premium-Erlebnis.',
     text:
       'Galloway Getaway steht für kompromisslose Tierhaltung, langsames Wachstum und eine Philosophie, die Natur, Genuss und Verantwortung miteinander verbindet.',
-    image: '/IMG_8866.JPG',
-    imageAlt: 'Galloway-Rind mit neugierigem Blick auf der Farm',
+    image: '/media/about.jpg',
+    imageAlt: 'Galloway-Rind mit neugierigem Blick auf der Weide',
     timelineEyebrow: 'Philosophie in Etappen',
     milestones: [
       {
@@ -110,19 +108,19 @@ export const siteContent = {
         name: 'Mara',
         age: '6 Jahre',
         detail: 'Ruhige Leittier-Dame mit ausgeprägter Sozialstruktur.',
-        image: '/IMG_8864.JPG'
+        image: '/media/farm-mara.jpg'
       },
       {
         name: 'Bram',
         age: '4 Jahre',
         detail: 'Neugieriger Bulle, bekannt für Gelassenheit und starke Präsenz.',
-        image: '/IMG_8865.JPG'
+        image: '/media/farm-bram.jpg'
       },
       {
         name: 'Nola',
         age: '2 Jahre',
         detail: 'Jungtier mit hoher Vitalität und markantem Fell.',
-        image: '/IMG_8867.JPG'
+        image: '/media/farm-nola.jpg'
       }
     ]
   },
@@ -159,19 +157,19 @@ export const siteContent = {
         name: 'Galloway Cookies Classic',
         price: 6.9,
         description: 'Knusprige Belohnungscookies für Rinder und Hoftiere.',
-        image: '/media/shop-cookies.svg'
+        image: '/media/shop.jpg'
       },
       {
         name: 'Heu-Kräuter Bites',
         price: 8.5,
         description: 'Schonend getrocknete Kräuter-Snacks für tägliche Fütterung.',
-        image: '/media/shop-herb-bites.svg'
+        image: '/media/shop-bites.jpg'
       },
       {
         name: 'Farm Treat Mix Box',
         price: 24,
         description: 'Mischbox mit Cookies, Bites und saisonalen Tier-Leckerlis.',
-        image: '/media/shop-mix-box.svg'
+        image: '/media/shop-mixbox.jpg'
       }
     ]
   },
@@ -197,19 +195,19 @@ export const siteContent = {
         month: 'Januar',
         title: 'Frostige Morgenruhe',
         text: 'Sanfte Winterstimmung mit ruhiger Herde auf offener Weide.',
-        image: '/media/calendar-january.svg'
+        image: '/media/calendar-jan.jpg'
       },
       {
         month: 'Mai',
         title: 'Frisches Weidegrün',
         text: 'Lebendige Frühlingsszene mit detailreichen Fellstrukturen und Lichtspiel.',
-        image: '/media/calendar-may.svg'
+        image: '/media/calendar-may.jpg'
       },
       {
         month: 'September',
         title: 'Golden Hour auf der Farm',
         text: 'Warme Abendfarben und markante Silhouetten für den Premium-Look.',
-        image: '/media/calendar-september.svg'
+        image: '/media/calendar-sep.jpg'
       }
     ],
     previewAlt: 'Vorschau des Play-Mooo-Kalenders',

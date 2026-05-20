@@ -1,15 +1,11 @@
 <section class="hero">
-  <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    [attr.aria-label]="content.hero.videoLabel"
-    [poster]="content.hero.posterUrl"
-  >
-    <source [src]="content.hero.videoUrl" type="video/mp4" />
-  </video>
+  <img
+    class="hero-bg"
+    [ngSrc]="content.hero.imageUrl"
+    fill
+    priority
+    [alt]="content.hero.imageAlt"
+  />
 
   <div class="hero-content container">
     <p class="text-label hero-line">{{ content.hero.eyebrow }}</p>
