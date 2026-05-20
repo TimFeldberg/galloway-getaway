@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
-import { ParallaxDirective } from '../../shared/directives/parallax.directive';
 import { siteContent } from '../../content/site-content';
 
 @Component({
   selector: 'app-farm-page',
-  imports: [RevealDirective, ParallaxDirective],
+  imports: [RevealDirective],
   templateUrl: './farm.page.html',
   styleUrl: './farm.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
