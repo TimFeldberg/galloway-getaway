@@ -131,6 +131,19 @@ img, video {
   }
 }
 
+// Warme Erdton-Variante – für Hero-CTA und Header-Conversion-Button
+.btn--warm {
+  background: #b8774a;
+
+  &::before {
+    background: #8f5a32;
+  }
+
+  &:hover {
+    color: $color-bg;
+  }
+}
+
 // ============================================================
 // Scroll Reveal
 // ============================================================

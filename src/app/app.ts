@@ -60,6 +60,8 @@ export class App {
   protected readonly menuOpen = signal(false);
   protected readonly scrolled = signal(false);
   protected readonly headerHovered = signal(false);
+  protected readonly ctaVisible = signal(false);
+  protected readonly showWhatsApp = signal(false);
   protected readonly brand = siteContent.brand;
   protected readonly navItems = siteContent.navigation;
 
@@ -86,11 +88,21 @@ export class App {
         this.meta.updateTag({ property: 'og:title', content: routeTitle });
         this.meta.updateTag({ property: 'og:description', content: routeDescription });
       });
+
+    // WhatsApp FAB: sofort auf Mobile, nach 3 Sekunden auf Desktop
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 768) {
+        this.showWhatsApp.set(true);
+      } else {
+        setTimeout(() => this.showWhatsApp.set(true), 3000);
+      }
+    }
   }
 
   @HostListener('window:scroll')
   onScroll(): void {
     this.scrolled.set(window.scrollY > 40);
+    this.ctaVisible.set(window.scrollY > 200);
   }
 
   protected onHeaderEnter(): void {

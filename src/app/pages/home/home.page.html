@@ -18,8 +18,14 @@
       }
     </h1>
     <div class="hero-cta">
-      <a class="btn" routerLink="/shop"><span>{{ content.hero.ctaPrimary }}</span></a>
-      <a class="btn-outline" routerLink="/partnerschaften">{{ content.hero.ctaSecondary }}</a>
+      <!-- TODO: Telefonnummer eintragen, z. B. +4915112345678 -->
+      <a
+        class="btn btn--warm"
+        href="https://wa.me/TELEFONNUMMER?text=Hallo%2C%20ich%20m%C3%B6chte%20ein%20Fleischpaket%20bestellen"
+        target="_blank"
+        rel="noopener noreferrer"
+      ><span>{{ content.hero.ctaPrimary }}</span></a>
+      <a class="btn-outline" routerLink="/ueber-uns">{{ content.hero.ctaSecondary }}</a>
     </div>
   </div>
 </section>
