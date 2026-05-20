@@ -41,8 +41,8 @@ export const siteContent = {
     hero: {
       eyebrow: 'Galloway Getaway',
       lines: ['Natur als Bühne.', 'Qualität als Haltung.', 'Erlebnis als Marke.'],
-      ctaPrimary: 'Jetzt Fleischpaket bestellen',
-      ctaSecondary: 'Farm entdecken',
+      ctaPrimary: 'Patenschaft übernehmen',
+      ctaSecondary: 'Farm besuchen',
       imageUrl: '/media/hero.jpg',
       imageAlt: 'Galloway-Rinder auf der Weide bei stimmungsvollem Licht'
     },

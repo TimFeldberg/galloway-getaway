@@ -18,12 +18,9 @@
       }
     </h1>
     <div class="hero-cta">
-      <!-- TODO: Telefonnummer eintragen, z. B. +4915112345678 -->
       <a
         class="btn btn--warm"
-        href="https://wa.me/TELEFONNUMMER?text=Hallo%2C%20ich%20m%C3%B6chte%20ein%20Fleischpaket%20bestellen"
-        target="_blank"
-        rel="noopener noreferrer"
+        routerLink="/partnerschaften"
       ><span>{{ content.hero.ctaPrimary }}</span></a>
       <a class="btn-outline" routerLink="/ueber-uns">{{ content.hero.ctaSecondary }}</a>
     </div>
@@ -57,5 +54,35 @@
         <p>{{ highlight.text }}</p>
       </article>
     }
+  </div>
+</section>
+
+<section class="snack-banner">
+  <div class="snack-inner container">
+    <div class="snack-text" appReveal="up">
+      <p class="text-label">Tierisches Glück</p>
+      <h2>Schenke deinem Patentier einen Snack 🌿</h2>
+      <p class="snack-desc">
+        Unsere Galloways lieben frische Kräuter-Bites, knusprige Heu-Snacks
+        und natürliche Leckerlis aus der Region. Mit deiner Bestellung
+        machst du einem Tier auf der Weide eine echte Freude – und
+        unterstützt gleichzeitig artgerechte Haltung.
+      </p>
+      <!-- TODO: SHOP-PLATZHALTER → Pfad zum Snack-Shop eintragen, z. B. /shop oder externe URL -->
+      <a class="btn btn--farm" routerLink="/shop"><span>Snack kaufen</span></a>
+    </div>
+    <div class="snack-visual" appReveal="right">
+      <picture>
+        <source [attr.srcset]="toWebp('/media/farm-nola.jpg')" type="image/webp" />
+        <img
+          src="/media/farm-nola.jpg"
+          alt="Nola – Galloway-Rind auf der Weide, bereit für einen Snack"
+          width="600"
+          height="480"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    </div>
   </div>
 </section>

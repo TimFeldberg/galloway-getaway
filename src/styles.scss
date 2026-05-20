@@ -144,6 +144,19 @@ img, video {
   }
 }
 
+// Farm-Grün-Variante – für Snack-Banner CTA
+.btn--farm {
+  background: #4a7c59;
+
+  &::before {
+    background: #2d5c3e;
+  }
+
+  &:hover {
+    color: $color-bg;
+  }
+}
+
 // ============================================================
 // Scroll Reveal
 // ============================================================

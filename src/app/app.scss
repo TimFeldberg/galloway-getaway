@@ -231,16 +231,16 @@
 	}
 }
 
-// ─── Floating WhatsApp Button ────────────────────────────────────────────────
+// ─── Floating Kontakt-Button ────────────────────────────────────────────────
 
-.whatsapp-fab {
+.contact-fab {
 	position: fixed;
 	bottom: 24px;
 	right: 24px;
 	z-index: 1000;
 	width: 56px;
 	height: 56px;
-	background: #25d366;
+	background: #4a7c59;
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
@@ -259,18 +259,18 @@
 	}
 
 	&.visible:hover {
-		background: #1da851;
+		background: #2d5c3e;
 		transform: scale(1.1);
 
-		.whatsapp-fab__tooltip {
+		.contact-fab__tooltip {
 			opacity: 1;
 			transform: translateX(0) translateY(-50%);
 		}
 	}
 
 	svg {
-		width: 28px;
-		height: 28px;
+		width: 26px;
+		height: 26px;
 		fill: #ffffff;
 	}
 
