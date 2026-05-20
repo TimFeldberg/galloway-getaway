@@ -42,3 +42,10 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Zip-Archive und temporäre Entpack-Ordner
+public/media/*.zip
+public/media/extracted/
+
+# Entwicklungs-Screenshots (vom Browser-Tool im Root-Verzeichnis erzeugt)
+/*.png
