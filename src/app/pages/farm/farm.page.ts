@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { siteContent } from '../../content/site-content';
 
 @Component({
   selector: 'app-farm-page',
-  imports: [RevealDirective],
+  imports: [RouterLink, RevealDirective],
   templateUrl: './farm.page.html',
   styleUrl: './farm.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

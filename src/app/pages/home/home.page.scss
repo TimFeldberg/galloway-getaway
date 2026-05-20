@@ -37,11 +37,19 @@
 
 h1 {
   color: #fff;
-  margin: 1rem 0 1.5rem;
+  margin: 1rem 0 0.75rem;
 
   span {
     display: block;
   }
+}
+
+.hero-subline {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  max-width: 540px;
+  margin: 0 0 1.75rem;
+  line-height: 1.65;
 }
 
 .hero-cta {

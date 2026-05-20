@@ -29,7 +29,15 @@
       </picture>
       <div class="meta">
         <h2>{{ animals[activeAnimal()].name }}</h2>
-        <p>{{ animals[activeAnimal()].detail }}</p>
+        <p class="meta-age">{{ animals[activeAnimal()].age }}</p>
+        <p class="meta-story">{{ animals[activeAnimal()].longDetail }}</p>
+        <div class="meta-badges">
+          @for (trait of animals[activeAnimal()].personality; track trait) {
+            <span class="badge">{{ trait }}</span>
+          }
+        </div>
+        <p class="meta-snack">🌿 Lieblingssnack: <strong>{{ animals[activeAnimal()].favoriteSnack }}</strong></p>
+        <a class="btn btn--farm" routerLink="/patenschaft">Patenschaft für {{ animals[activeAnimal()].name }}</a>
       </div>
     </article>
   </div>

@@ -204,3 +204,86 @@ img, video {
 }
 
 router-outlet + * { display: block; }
+
+// ============================================================
+// Legal Pages shared styles
+// ============================================================
+
+.legal-section {
+  margin-top: 2.5rem;
+
+  h2 {
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  p, li {
+    color: #5a5047;
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  p + p { margin-top: 0.75rem; }
+
+  a {
+    color: #4a7c59;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  ul {
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+    margin: 0.75rem 0;
+
+    li {
+      padding-left: 1.4rem;
+      position: relative;
+
+      &::before {
+        content: '–';
+        position: absolute;
+        left: 0;
+        color: #4a7c59;
+        font-weight: 700;
+      }
+    }
+  }
+
+  code {
+    background: rgba(0, 0, 0, 0.07);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.88em;
+    font-family: 'Courier New', monospace;
+  }
+}
+
+.cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 1rem 0;
+
+  th, td {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  th {
+    background: rgba(0, 0, 0, 0.04);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+  }
+
+  tr:nth-child(even) td {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}

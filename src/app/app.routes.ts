@@ -28,6 +28,13 @@ export const appRoutes: Routes = [
     data: { animation: 'partnerships', description: siteContent.partnerships.seoDescription }
   },
   {
+    path: 'patenschaft',
+    title: siteContent.patenschaft.seoTitle,
+    loadComponent: () =>
+      import('./pages/patenschaft/patenschaft.page').then((m) => m.PatenschaftPage),
+    data: { animation: 'patenschaft', description: siteContent.patenschaft.seoDescription }
+  },
+  {
     path: 'shop',
     title: siteContent.shop.seoTitle,
     loadComponent: () => import('./pages/shop/shop.page').then((m) => m.ShopPage),

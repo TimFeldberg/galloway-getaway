@@ -17,10 +17,11 @@
         <span class="hero-line">{{ line }}</span>
       }
     </h1>
+    <p class="hero-subline">{{ content.hero.subline }}</p>
     <div class="hero-cta">
       <a
         class="btn btn--warm"
-        routerLink="/partnerschaften"
+        routerLink="/patenschaft"
       ><span>{{ content.hero.ctaPrimary }}</span></a>
       <a class="btn-outline" routerLink="/ueber-uns">{{ content.hero.ctaSecondary }}</a>
     </div>
@@ -68,7 +69,7 @@
         machst du einem Tier auf der Weide eine echte Freude – und
         unterstützt gleichzeitig artgerechte Haltung.
       </p>
-      <!-- TODO: SHOP-PLATZHALTER → Pfad zum Snack-Shop eintragen, z. B. /shop oder externe URL -->
+
       <a class="btn btn--farm" routerLink="/shop"><span>Snack kaufen</span></a>
     </div>
     <div class="snack-visual" appReveal="right">

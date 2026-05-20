@@ -37,11 +37,10 @@
     }
   </nav>
 
-  <!-- TODO: Telefonnummer eintragen, z. B. +4915112345678 -->
   <a
     class="header-cta"
     [class.visible]="ctaVisible()"
-    routerLink="/partnerschaften"
+    routerLink="/patenschaft"
   >Patenschaft</a>
 </header>
 
@@ -54,6 +53,15 @@
     <p>{{ brand.shortTagline }}</p>
     <small>© {{ 2026 }} {{ brand.name }} · {{ brand.footerNote }}</small>
   </div>
+
+  <nav aria-label="Seiten" class="footer-links">
+    <a routerLink="/farm">Unsere Tiere</a>
+    <a routerLink="/patenschaft">Patenschaft</a>
+    <a routerLink="/shop">Shop</a>
+    <a routerLink="/kalender">Kalender</a>
+    <a routerLink="/ueber-uns">Über uns</a>
+    <a routerLink="/partnerschaften">B2B-Partnerschaften</a>
+  </nav>
 
   <nav aria-label="Rechtliches" class="footer-links">
     <a routerLink="/impressum">Impressum</a>

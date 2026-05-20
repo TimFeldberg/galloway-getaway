@@ -5,7 +5,7 @@ export const siteContent = {
   brand: {
     name: 'Galloway Getaway',
     shortTagline: 'Natürlich. Hochwertig. Erlebbar.',
-    footerNote: 'Premium Farm Experience · Inhalte und Bilder können zentral in dieser Datei gepflegt werden.'
+    footerNote: 'Premium Farm Experience · Galloway-Patenschaften · Direkt vom Hof'
   },
   notFound: {
     seoTitle: 'Seite nicht gefunden – Galloway Getaway',
@@ -28,26 +28,28 @@ export const siteContent = {
   },
   navigation: [
     { label: 'Start', href: '/' },
-    { label: 'Über uns', href: '/ueber-uns' },
-    { label: 'Farm & Tiere', href: '/farm' },
-    { label: 'Partnerschaften', href: '/partnerschaften' },
+    { label: 'Unsere Tiere', href: '/farm' },
+    { label: 'Patenschaft', href: '/patenschaft' },
     { label: 'Shop', href: '/shop' },
-    { label: 'Kalender kaufen', href: '/kalender' }
+    { label: 'Über uns', href: '/ueber-uns' },
+    { label: 'Kalender', href: '/kalender' }
   ],
   home: {
-    seoTitle: 'Galloway Getaway – Premium Farm Experience',
+    seoTitle: 'Galloway Getaway – Tierpatenschaften & Direktverkauf',
     seoDescription:
-      'Entdecke die Welt von Galloway Getaway mit hochwertiger Farm-Ästhetik, Tier-Snacks, Partnerschaften und starkem Storytelling.',
+      'Werde Pate eines Galloway-Rindes, kaufe natürliche Tiersnacks direkt vom Hof und erlebe Premium-Landwirtschaft hautnah. Mara, Bram und Nola freuen sich auf dich.',
     hero: {
-      eyebrow: 'Galloway Getaway',
-      lines: ['Natur als Bühne.', 'Qualität als Haltung.', 'Erlebnis als Marke.'],
+      eyebrow: 'Tierpatenschaften · Direktverkauf · Naturbelassen',
+      lines: ['Werde Pate.', 'Mach ein Tier glücklich.'],
+      subline:
+        'Drei Galloway-Rinder warten auf einen Paten. Lerne Mara, Bram und Nola kennen – und werde Teil unserer kleinen Herde.',
       ctaPrimary: 'Patenschaft übernehmen',
       ctaSecondary: 'Farm besuchen',
       imageUrl: '/media/hero.jpg',
       imageAlt: 'Galloway-Rinder auf der Weide bei stimmungsvollem Licht'
     },
     intro: {
-      eyebrow: 'Scroll Storytelling',
+      eyebrow: 'Was uns besonders macht',
       heading: 'Vom ruhigen Weideland zur immersiven Farm Experience.'
     },
     highlights: [
@@ -111,6 +113,10 @@ export const siteContent = {
         name: 'Mara',
         age: '6 Jahre',
         detail: 'Ruhige Leittier-Dame mit ausgeprägter Sozialstruktur.',
+        longDetail:
+          'Mara ist die Seele der Herde. Seit drei Jahren führt sie die anderen Tiere mit ruhiger Würde über die Weide – immer die Erste, die sich einem Neuankömmling nähert, immer die Letzte, die abends ins Gras legt. Mit ihr zu sitzen ist wie Stille spürbar zu machen.',
+        personality: ['Ruhig', 'Sozial', 'Weise'],
+        favoriteSnack: 'Heu-Kräuter Bites',
         image: '/media/farm-mara.jpg',
         imageAlt: 'Mara – ruhige Leittier-Dame der Galloway-Herde'
       },
@@ -118,6 +124,10 @@ export const siteContent = {
         name: 'Bram',
         age: '4 Jahre',
         detail: 'Neugieriger Bulle, bekannt für Gelassenheit und starke Präsenz.',
+        longDetail:
+          'Bram kommt immer als Erster zum Zaunrand, wenn Menschen in der Nähe sind – nicht aus Nervosität, sondern aus Neugier. Er ist der Größte auf der Weide, bewacht Kälber mit ruhiger Aufmerksamkeit und hat einen sehr eigenen Humor. Wer Bram einmal die Hand hingestreckt hat, versteht, was Vertrauen bedeutet.',
+        personality: ['Neugierig', 'Gelassen', 'Mutig'],
+        favoriteSnack: 'Galloway Cookies Classic',
         image: '/media/farm-bram.jpg',
         imageAlt: 'Bram – neugieriger Galloway-Bulle mit starker Präsenz'
       },
@@ -125,21 +135,26 @@ export const siteContent = {
         name: 'Nola',
         age: '2 Jahre',
         detail: 'Jungtier mit hoher Vitalität und markantem Fell.',
+        longDetail:
+          'Nola ist das Jüngste der Herde – und manchmal merkt man das noch. Sie springt, wo andere schreiten, fragt, wo andere schon wissen. Ihr dichtes, lockiges Fell glänzt im Herbstlicht besonders schön. Wer Nola einmal in die Augen geschaut hat, vergisst das nicht.',
+        personality: ['Verspielt', 'Vital', 'Neugierig'],
+        favoriteSnack: 'Farm Treat Mix Box',
         image: '/media/farm-nola.jpg',
         imageAlt: 'Nola – vitales Galloway-Jungtier mit markantem Fell'
       }
     ]
   },
   partnerships: {
-    seoTitle: 'Partnerschaften – Galloway Getaway',
+    seoTitle: 'B2B-Partnerschaften – Galloway Getaway',
     seoDescription:
-      'Starte Partnerschaften mit Galloway Getaway für regionale Premium-Produkte, Storytelling und hochwertige Markenkooperationen.',
-    eyebrow: 'Partnerschaften',
+      'Regionale B2B-Partnerschaften mit Galloway Getaway – für Gastronomie, Hofladen-Konzepte und Markenkooperationen im Premium-Segment.',
+    eyebrow: 'B2B-Partnerschaften',
     heading: 'Gemeinsam regionale Premium-Werte schaffen.',
     benefits: [
-      'Zugang zu regionalen Premium-Produkten',
+      'Zugang zu regionalen Premium-Produkten direkt vom Hof',
       'Transparente Herkunft und Qualitätsnachweise',
-      'Gemeinsames Storytelling für Marke & Vertrieb'
+      'Gemeinsames Storytelling für Marke & Vertrieb',
+      'Individuelle Konditionen für Gastronomie und Handel'
     ],
     formLabels: {
       name: 'Name',
@@ -218,5 +233,114 @@ export const siteContent = {
     ],
     previewAlt: 'Vorschau des Play-Mooo-Kalenders',
     unitPrice: 29
+  },
+  patenschaft: {
+    seoTitle: 'Patenschaft – Galloway Getaway',
+    seoDescription:
+      'Werde Pate eines Galloway-Rindes. Monatliche Updates, Besuchstermine und eine echte Verbindung zu Mara, Bram oder Nola.',
+    eyebrow: 'Tierpatenschaften',
+    heading: 'Werde Teil unserer Herde.',
+    intro:
+      'Übernimm eine Patenschaft für Mara, Bram oder Nola – und erfahre monatlich, wie es deinem Patentier auf der Weide geht. Echte Fotos, echte Geschichten, ein echter Unterschied.',
+    howItWorksTitle: 'So funktioniert eine Patenschaft',
+    steps: [
+      {
+        icon: '🐄',
+        title: 'Tier wählen',
+        text: 'Lerne Mara, Bram und Nola kennen und wähle dein Patentier aus.'
+      },
+      {
+        icon: '📋',
+        title: 'Paket auswählen',
+        text: 'Basis, Plus oder Premium – ganz nach dem, was du erleben möchtest.'
+      },
+      {
+        icon: '📬',
+        title: 'Updates genießen',
+        text: 'Monatliche Foto-Updates, Briefe und Besuchstermine warten auf dich.'
+      }
+    ],
+    animalsTitle: 'Wähle dein Patentier',
+    packagesTitle: 'Deine Patenschaft',
+    packages: [
+      {
+        id: 'basis',
+        name: 'Basis',
+        price: '9 € / Monat',
+        featured: false,
+        features: [
+          'Digitales Patenschaftszertifikat',
+          'Monatliche Foto-Updates',
+          'Namenseintrag auf der Farm-Website'
+        ]
+      },
+      {
+        id: 'plus',
+        name: 'Plus',
+        price: '19 € / Monat',
+        featured: true,
+        features: [
+          'Alles aus Basis',
+          'Persönlicher Besuchstermin (1× jährlich)',
+          'Handgeschriebener Brief vom Bauern'
+        ]
+      },
+      {
+        id: 'premium',
+        name: 'Premium',
+        price: '39 € / Monat',
+        featured: false,
+        features: [
+          'Alles aus Plus',
+          'Namensschild auf der Weide',
+          'Jahreskalender kostenlos',
+          'Farm Treat Box (quartalsweise)'
+        ]
+      }
+    ],
+    formTitle: 'Jetzt Patenschaft starten',
+    formLabels: {
+      name: 'Dein Name',
+      email: 'E-Mail-Adresse',
+      animal: 'Patentier wählen',
+      animalOptions: [
+        { value: 'mara', label: 'Mara (6 Jahre · Leittier-Dame)' },
+        { value: 'bram', label: 'Bram (4 Jahre · Neugieriger Bulle)' },
+        { value: 'nola', label: 'Nola (2 Jahre · Jungtier)' }
+      ],
+      package: 'Patenschaftspaket',
+      message: 'Nachricht (optional)',
+      submit: 'Patenschaft anfragen',
+      success:
+        'Herzlich willkommen in unserer Herde! Wir melden uns innerhalb von 24 Stunden.'
+    },
+    faqTitle: 'Häufige Fragen',
+    faqs: [
+      {
+        question: 'Was beinhaltet eine Patenschaft?',
+        answer:
+          'Mit einer Patenschaft erhältst du ein persönliches Zertifikat, monatliche Foto-Updates deines Patentiers und je nach Paket einen persönlichen Besuchstermin auf der Farm.'
+      },
+      {
+        question: 'Kann ich mein Patentier besuchen?',
+        answer:
+          'Ab dem Plus-Paket beinhaltet deine Patenschaft einen geführten Besuchstermin pro Jahr – inklusive persönlicher Begegnung mit deinem Tier.'
+      },
+      {
+        question: 'Wie lange läuft eine Patenschaft?',
+        answer:
+          'Patenschaften laufen monatlich und können jederzeit zum Monatsende gekündigt werden. Es gibt keine Mindestlaufzeit.'
+      },
+      {
+        question: 'Erhalte ich ein Zertifikat?',
+        answer:
+          'Ja – nach Abschluss erhältst du ein digitales Patenschaftszertifikat mit dem Namen deines Tieres. Auf Wunsch auch als gedruckte Version.'
+      },
+      {
+        question: 'Was passiert mit meinem Beitrag?',
+        answer:
+          'Dein Beitrag fließt direkt in das Wohlbefinden der Tiere: besseres Futter, artgerechte Weide-Pflege und tierärztliche Versorgung.'
+      }
+    ]
   }
 } as const;

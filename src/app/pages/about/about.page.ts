@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { ParallaxDirective } from '../../shared/directives/parallax.directive';
 import { siteContent } from '../../content/site-content';
 
 @Component({
   selector: 'app-about-page',
-  imports: [RevealDirective, ParallaxDirective],
+  imports: [RouterLink, RevealDirective, ParallaxDirective],
   templateUrl: './about.page.html',
   styleUrl: './about.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

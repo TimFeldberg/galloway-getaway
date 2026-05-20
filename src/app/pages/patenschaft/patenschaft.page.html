@@ -1,0 +1,133 @@
+<section class="paten-hero section container" appReveal="up">
+  <p class="text-label">{{ content.eyebrow }}</p>
+  <h1>{{ content.heading }}</h1>
+  <p class="paten-intro">{{ content.intro }}</p>
+</section>
+
+<section class="how-it-works section container">
+  <h2 appReveal="up">{{ content.howItWorksTitle }}</h2>
+  <div class="steps">
+    @for (step of content.steps; track step.title; let i = $index) {
+      <div class="step" appReveal="up">
+        <span class="step-number">{{ i + 1 }}</span>
+        <p class="step-icon">{{ step.icon }}</p>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.text }}</p>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="paten-animals section container">
+  <h2 appReveal="up">{{ content.animalsTitle }}</h2>
+  <div class="animal-choice-grid">
+    @for (animal of animals; track animal.name) {
+      <article class="animal-choice" appReveal="scale">
+        <picture>
+          <source [attr.srcset]="toWebp(animal.image)" type="image/webp" />
+          <img
+            [src]="animal.image"
+            [alt]="animal.imageAlt"
+            width="600"
+            height="480"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <div class="animal-choice-body">
+          <h3>{{ animal.name }}</h3>
+          <p class="animal-age">{{ animal.age }}</p>
+          <p>{{ animal.longDetail }}</p>
+          <div class="badges">
+            @for (trait of animal.personality; track trait) {
+              <span class="badge">{{ trait }}</span>
+            }
+          </div>
+          <p class="snack-hint">🌿 Lieblingssnack: <strong>{{ animal.favoriteSnack }}</strong></p>
+          <a class="btn btn--farm" href="#paten-form">Patenschaft für {{ animal.name }}</a>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="paten-packages section container">
+  <h2 appReveal="up">{{ content.packagesTitle }}</h2>
+  <div class="package-grid">
+    @for (pkg of packages; track pkg.id) {
+      <div class="package" [class.featured]="pkg.featured" appReveal="scale">
+        @if (pkg.featured) {
+          <span class="featured-badge">Beliebteste Wahl</span>
+        }
+        <h3>{{ pkg.name }}</h3>
+        <p class="pkg-price">{{ pkg.price }}</p>
+        <ul>
+          @for (feature of pkg.features; track feature) {
+            <li>{{ feature }}</li>
+          }
+        </ul>
+        <a class="btn" [class.btn--farm]="pkg.featured" href="#paten-form"><span>Paket wählen</span></a>
+      </div>
+    }
+  </div>
+</section>
+
+<section id="paten-form" class="paten-form-section section container">
+  <h2 appReveal="up">{{ content.formTitle }}</h2>
+
+  <form class="paten-form" [formGroup]="form" (ngSubmit)="submit()" appReveal="up" novalidate>
+    <div class="form-row">
+      <label>
+        {{ content.formLabels.name }}
+        <input type="text" formControlName="name" autocomplete="name" />
+      </label>
+      <label>
+        {{ content.formLabels.email }}
+        <input type="email" formControlName="email" autocomplete="email" />
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label>
+        {{ content.formLabels.animal }}
+        <select formControlName="animal">
+          <option value="" disabled>Tier wählen…</option>
+          @for (opt of content.formLabels.animalOptions; track opt.value) {
+            <option [value]="opt.value">{{ opt.label }}</option>
+          }
+        </select>
+      </label>
+      <label>
+        {{ content.formLabels.package }}
+        <select formControlName="package">
+          @for (pkg of packages; track pkg.id) {
+            <option [value]="pkg.id">{{ pkg.name }} – {{ pkg.price }}</option>
+          }
+        </select>
+      </label>
+    </div>
+
+    <label>
+      {{ content.formLabels.message }}
+      <textarea rows="4" formControlName="message"></textarea>
+    </label>
+
+    <button class="btn btn--farm" type="submit"><span>{{ content.formLabels.submit }}</span></button>
+
+    @if (sent()) {
+      <p class="form-success">{{ content.formLabels.success }}</p>
+    }
+  </form>
+</section>
+
+<section class="paten-faq section container">
+  <h2 appReveal="up">{{ content.faqTitle }}</h2>
+  <div class="faq-list">
+    @for (faq of content.faqs; track faq.question) {
+      <details class="faq-item" appReveal="up">
+        <summary>{{ faq.question }}</summary>
+        <p>{{ faq.answer }}</p>
+      </details>
+    }
+  </div>
+</section>

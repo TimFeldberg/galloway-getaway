@@ -56,7 +56,48 @@
 
   .meta {
     padding: 1.2rem;
+
+    .meta-age {
+      font-size: 0.83rem;
+      color: #5a5047;
+      margin: 0.15rem 0 0.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    .meta-story {
+      font-size: 0.93rem;
+      line-height: 1.65;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+
+    .meta-badges {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    .meta-snack {
+      font-size: 0.85rem;
+      color: #4a7c59;
+      margin-bottom: 1.25rem;
+    }
+
+    .btn--farm {
+      display: inline-block;
+    }
   }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: #e8f0d8;
+  color: #2d5c3e;
+  font-size: 0.75rem;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
 }
 
 @media (max-width: 900px) {

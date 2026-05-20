@@ -3,42 +3,105 @@
   <h1>Cookies und Tracking</h1>
 
   <div class="legal-section">
+    <p>
+      Diese Seite gibt einen Überblick über alle Cookies und ähnliche Technologien, die auf
+      galloway-getaway.netlify.app eingesetzt werden. Sie können Ihre Einwilligung hier
+      jederzeit verwalten oder widerrufen.
+    </p>
+  </div>
+
+  <div class="legal-section">
     <h2>Notwendige Cookies</h2>
     <p>
-      <!-- Welche Cookies sind technisch notwendig für die Website? (z. B. Session-Cookies, Cookie-Consent-Status) -->
-      <!-- Diese dürfen ohne Einwilligung gesetzt werden. -->
+      Diese Cookies sind für den Betrieb der Website technisch erforderlich. Sie können nicht
+      deaktiviert werden. Sie speichern keine personenbezogenen Daten und werden nicht für
+      Tracking oder Werbung verwendet.
+    </p>
+    <table class="cookie-table">
+      <thead>
+        <tr><th>Name</th><th>Zweck</th><th>Laufzeit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>gg-cookie-consent</code></td>
+          <td>Speichert Ihre Cookie-Einwilligung (localStorage)</td>
+          <td>Dauerhaft (bis zur Löschung)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="legal-section">
+    <h2>Analyse-Cookies (nur mit Einwilligung)</h2>
+    <p>
+      Diese Cookies werden nur gesetzt, wenn Sie der Nutzung von Analyse-Cookies zugestimmt haben.
+      Sie helfen uns zu verstehen, wie Besucher unsere Website nutzen, damit wir sie verbessern können.
+    </p>
+    <table class="cookie-table">
+      <thead>
+        <tr><th>Name</th><th>Anbieter</th><th>Zweck</th><th>Laufzeit</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>_ga</code></td>
+          <td>Google Analytics</td>
+          <td>Unterscheidet Nutzer (anonymisiert)</td>
+          <td>2 Jahre</td>
+        </tr>
+        <tr>
+          <td><code>_ga_*</code></td>
+          <td>Google Analytics 4</td>
+          <td>Speichert Sitzungsstatus</td>
+          <td>2 Jahre</td>
+        </tr>
+        <tr>
+          <td><code>_gid</code></td>
+          <td>Google Analytics</td>
+          <td>Unterscheidet Nutzer (Sitzung)</td>
+          <td>24 Stunden</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Die durch Google Analytics erhobenen Daten werden auf Servern von Google in den USA
+      gespeichert. Wir haben die IP-Anonymisierung aktiviert. Google hat sich zum
+      EU-US Data Privacy Framework verpflichtet. Weitere Informationen:
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+        policies.google.com/privacy
+      </a>
     </p>
   </div>
 
   <div class="legal-section">
-    <h2>Analyse-Cookies</h2>
+    <h2>Marketing- / Werbe-Cookies</h2>
     <p>
-      <!-- Welche Analyse-Tools werden eingesetzt? (z. B. Google Analytics, Matomo, Plausible) -->
-      <!-- Beschreiben Sie, was damit gemessen wird und wie lange die Daten gespeichert werden. -->
-      <!-- Wie können Nutzer diese ablehnen? -->
+      Wir setzen derzeit keine Marketing- oder Werbe-Cookies von Drittanbietern ein
+      (z. B. Meta Pixel, Google Ads). Es werden keine Daten für Retargeting oder
+      personalisierte Werbung erfasst.
     </p>
   </div>
 
   <div class="legal-section">
-    <h2>Marketing / Werbe-Cookies</h2>
+    <h2>Einwilligung verwalten</h2>
     <p>
-      <!-- Werden externe Werbepartnerschaften genutzt? (z. B. Meta Pixel, Google Ads) -->
-      <!-- Welche Daten werden dabei erfasst und an wen weitergeleitet? -->
+      Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie den Cookie-Banner über
+      folgenden Link erneut aufrufen. Ihre gespeicherten Einstellungen werden dabei zurückgesetzt.
     </p>
-  </div>
-
-  <div class="legal-section">
-    <h2>Einwilligungsverwaltung</h2>
     <p>
-      Benutzer können ihre Cookie-Einwilligung jederzeit über diese Seite oder einen Banner ändern oder
-      widerrufen. Die Einstellungen werden lokal im Browser gespeichert.
+      <button
+        class="btn-outline"
+        type="button"
+        onclick="localStorage.removeItem('gg-cookie-consent'); location.reload();"
+      >
+        Cookie-Einstellungen zurücksetzen
+      </button>
     </p>
   </div>
 
   <div class="legal-section">
     <h2>Weitergehende Informationen</h2>
     <p>
-      Weitere Informationen zum Datenschutz finden Sie in unserer
+      Weitere Informationen zur Verarbeitung Ihrer Daten finden Sie in unserer
       <a routerLink="/datenschutz">Datenschutzerklärung</a>.
     </p>
   </div>

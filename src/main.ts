@@ -1,14 +1,19 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withInMemoryScrolling, NavigationEnd, Router } from '@angular/router';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+import { LOCALE_ID, inject } from '@angular/core';
 import { App } from './app/app';
 import { appRoutes } from './app/app.routes';
 import { AnalyticsService } from './app/shared/services/analytics.service';
 import { filter } from 'rxjs/operators';
-import { inject } from '@angular/core';
+
+registerLocaleData(localeDe);
 
 bootstrapApplication(App, {
   providers: [
+    { provide: LOCALE_ID, useValue: 'de' },
     provideAnimations(),
     provideRouter(
       appRoutes,

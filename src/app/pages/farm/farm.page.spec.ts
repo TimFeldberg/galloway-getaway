@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { IMAGE_LOADER } from '@angular/common';
+import { provideRouter } from '@angular/router';
 import { FarmPage } from './farm.page';
 
 describe('FarmPage', () => {
@@ -7,6 +8,7 @@ describe('FarmPage', () => {
     await TestBed.configureTestingModule({
       imports: [FarmPage],
       providers: [
+        provideRouter([]),
         { provide: IMAGE_LOADER, useValue: (cfg: { src: string }) => cfg.src }
       ]
     }).compileComponents();
