@@ -39,6 +39,10 @@
   border: 1px solid rgba(0, 0, 0, 0.12);
   overflow: hidden;
 
+  picture {
+    display: block;
+  }
+
   img {
     width: 100%;
     height: clamp(240px, 40vw, 460px);

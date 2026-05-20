@@ -34,6 +34,10 @@
     object-fit: cover;
   }
 
+  picture {
+    display: block;
+  }
+
   .content {
     padding: 1rem;
   }

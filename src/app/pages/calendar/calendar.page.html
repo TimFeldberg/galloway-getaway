@@ -44,13 +44,18 @@
       </div>
 
       <div class="preview-card" [@previewSwap]="previewIndex()">
-        <img
-          [ngSrc]="activeMonth().image"
-          width="1000"
-          height="1280"
-          [alt]="content.previewAlt"
-          priority
-        />
+        <picture>
+          <source [attr.srcset]="toWebp(activeMonth().image)" type="image/webp" />
+          <img
+            [src]="activeMonth().image"
+            width="1000"
+            height="1280"
+            [alt]="activeMonth().title + ' – Play-Mooo-Kalender'"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
         <div class="preview-meta">
           <p class="text-label">{{ activeMonth().month }}</p>
           <h2>{{ activeMonth().title }}</h2>

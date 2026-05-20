@@ -10,7 +10,17 @@
   <div class="product-grid">
     @for (product of products; track product.name) {
       <article class="product" appReveal="scale">
-        <img [ngSrc]="product.image" width="900" height="600" [alt]="product.name" loading="lazy" />
+        <picture>
+          <source [attr.srcset]="toWebp(product.image)" type="image/webp" />
+          <img
+            [src]="product.image"
+            width="900"
+            height="600"
+            [alt]="product.name + ' – Galloway Getaway Tiersnack'"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
         <div class="content">
           <h2>{{ product.name }}</h2>
           <p>{{ product.description }}</p>

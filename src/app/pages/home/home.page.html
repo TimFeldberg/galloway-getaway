@@ -1,11 +1,14 @@
 <section class="hero">
-  <img
-    class="hero-bg"
-    [ngSrc]="content.hero.imageUrl"
-    fill
-    priority
-    [alt]="content.hero.imageAlt"
-  />
+  <picture class="hero-bg">
+    <source [attr.srcset]="toWebp(content.hero.imageUrl)" type="image/webp" />
+    <img
+      [src]="content.hero.imageUrl"
+      [alt]="content.hero.imageAlt"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </picture>
 
   <div class="hero-content container">
     <p class="text-label hero-line">{{ content.hero.eyebrow }}</p>
@@ -31,14 +34,18 @@
     @for (highlight of highlights; track highlight.title) {
       <article class="story-block" appReveal="scale">
         <div class="media-wrap">
-          <img
-            [ngSrc]="highlight.image"
-            width="900"
-            height="640"
-            [alt]="highlight.title"
-            loading="lazy"
-            appParallax="0.08"
-          />
+          <picture>
+            <source [attr.srcset]="toWebp(highlight.image)" type="image/webp" />
+            <img
+              [src]="highlight.image"
+              [alt]="highlight.title"
+              width="900"
+              height="640"
+              loading="lazy"
+              decoding="async"
+              appParallax="0.08"
+            />
+          </picture>
         </div>
         <h3>{{ highlight.title }}</h3>
         <p>{{ highlight.text }}</p>

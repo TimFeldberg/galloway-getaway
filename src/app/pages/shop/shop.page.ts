@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
-import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { siteContent } from '../../content/site-content';
 
 @Component({
   selector: 'app-shop-page',
-  imports: [CurrencyPipe, NgOptimizedImage, RevealDirective],
+  imports: [CurrencyPipe, RevealDirective],
   templateUrl: './shop.page.html',
   styleUrl: './shop.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -21,5 +21,9 @@ export class ShopPage {
   protected addToCart(price: number): void {
     this.cartCount.update((count) => count + 1);
     this.cartTotal.update((sum) => Number((sum + price).toFixed(2)));
+  }
+
+  protected toWebp(path: string): string {
+    return path.replace(/\.jpe?g$/i, '.webp');
   }
 }

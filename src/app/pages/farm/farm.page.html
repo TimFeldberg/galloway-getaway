@@ -15,13 +15,18 @@
     </aside>
 
     <article class="animal-card" appReveal="scale">
-      <img
-        [ngSrc]="animals[activeAnimal()].image"
-        width="1200"
-        height="780"
-        [alt]="animals[activeAnimal()].name"
-        priority
-      />
+      <picture>
+        <source [attr.srcset]="toWebp(animals[activeAnimal()].image)" type="image/webp" />
+        <img
+          [src]="animals[activeAnimal()].image"
+          width="1200"
+          height="780"
+          [alt]="animals[activeAnimal()].name + ' – Galloway-Rind auf der Weide'"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
       <div class="meta">
         <h2>{{ animals[activeAnimal()].name }}</h2>
         <p>{{ animals[activeAnimal()].detail }}</p>

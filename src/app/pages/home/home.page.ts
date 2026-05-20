@@ -1,6 +1,5 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnDestroy, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgOptimizedImage } from '@angular/common';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
@@ -9,7 +8,7 @@ import { siteContent } from '../../content/site-content';
 
 @Component({
   selector: 'app-home-page',
-  imports: [RouterLink, NgOptimizedImage, RevealDirective, ParallaxDirective],
+  imports: [RouterLink, RevealDirective, ParallaxDirective],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -20,6 +19,10 @@ export class HomePage implements AfterViewInit, OnDestroy {
 
   protected readonly content = siteContent.home;
   protected readonly highlights = siteContent.home.highlights;
+
+  protected toWebp(path: string): string {
+    return path.replace(/\.jpe?g$/i, '.webp');
+  }
 
   ngAfterViewInit(): void {
     if (typeof window === 'undefined') {

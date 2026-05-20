@@ -44,7 +44,7 @@ export const siteContent = {
       ctaPrimary: 'Jetzt einkaufen',
       ctaSecondary: 'Partnerschaft starten',
       imageUrl: '/media/hero.jpg',
-      imageAlt: 'Galloway-Rinder auf der Weide bei Galloway Getaway'
+      imageAlt: 'Galloway-Rinder auf der Weide bei stimmungsvollem Licht'
     },
     intro: {
       eyebrow: 'Scroll Storytelling',
@@ -54,17 +54,20 @@ export const siteContent = {
       {
         title: 'Natürliche Haltung',
         text: 'Unsere Galloways leben ganzjährig auf offenen Weiden in ruhiger, artgerechter Umgebung.',
-        image: '/media/highlight-nature.jpg'
+        image: '/media/highlight-nature.jpg',
+        imageAlt: 'Galloway-Rinder in natürlicher Weidehaltung auf offener Wiese'
       },
       {
         title: 'Premium Qualität',
         text: 'Kurze Wege und kompromisslose Qualität für Tier-Snacks, Pflegeprodukte und Farm-Specials.',
-        image: '/media/feature.jpg'
+        image: '/media/feature.jpg',
+        imageAlt: 'Nahaufnahme eines Galloway-Rindes – sichtbare Premium-Qualität'
       },
       {
         title: 'Erlebnis vor Ort',
         text: 'Geführte Farm-Erlebnisse, saisonale Highlights und unser kaufbarer Premium-Kalender machen die Marke erlebbar.',
-        image: '/media/highlight-experience.jpg'
+        image: '/media/highlight-experience.jpg',
+        imageAlt: 'Besucher erleben die Galloway-Farm hautnah im Herbstlicht'
       }
     ]
   },
@@ -77,7 +80,7 @@ export const siteContent = {
     text:
       'Galloway Getaway steht für kompromisslose Tierhaltung, langsames Wachstum und eine Philosophie, die Natur, Genuss und Verantwortung miteinander verbindet.',
     image: '/media/about.jpg',
-    imageAlt: 'Galloway-Rind mit neugierigem Blick auf der Weide',
+    imageAlt: 'Galloway-Rind mit neugierigem Blick – Charakter der Farm',
     timelineEyebrow: 'Philosophie in Etappen',
     milestones: [
       {
@@ -108,19 +111,22 @@ export const siteContent = {
         name: 'Mara',
         age: '6 Jahre',
         detail: 'Ruhige Leittier-Dame mit ausgeprägter Sozialstruktur.',
-        image: '/media/farm-mara.jpg'
+        image: '/media/farm-mara.jpg',
+        imageAlt: 'Mara – ruhige Leittier-Dame der Galloway-Herde'
       },
       {
         name: 'Bram',
         age: '4 Jahre',
         detail: 'Neugieriger Bulle, bekannt für Gelassenheit und starke Präsenz.',
-        image: '/media/farm-bram.jpg'
+        image: '/media/farm-bram.jpg',
+        imageAlt: 'Bram – neugieriger Galloway-Bulle mit starker Präsenz'
       },
       {
         name: 'Nola',
         age: '2 Jahre',
         detail: 'Jungtier mit hoher Vitalität und markantem Fell.',
-        image: '/media/farm-nola.jpg'
+        image: '/media/farm-nola.jpg',
+        imageAlt: 'Nola – vitales Galloway-Jungtier mit markantem Fell'
       }
     ]
   },

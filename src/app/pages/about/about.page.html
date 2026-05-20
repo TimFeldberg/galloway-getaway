@@ -5,14 +5,19 @@
     <p>{{ content.text }}</p>
   </div>
   <figure class="image" appReveal="right">
-    <img
-      [ngSrc]="content.image"
-      width="1100"
-      height="800"
-      [alt]="content.imageAlt"
-      priority
-      appParallax="0.1"
-    />
+    <picture>
+      <source [attr.srcset]="toWebp(content.image)" type="image/webp" />
+      <img
+        [src]="content.image"
+        width="1100"
+        height="800"
+        [alt]="content.imageAlt"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        appParallax="0.1"
+      />
+    </picture>
   </figure>
 </section>
 

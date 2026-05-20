@@ -1,12 +1,12 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { CurrencyPipe, NgOptimizedImage } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { siteContent } from '../../content/site-content';
 
 @Component({
   selector: 'app-calendar-page',
-  imports: [CurrencyPipe, NgOptimizedImage, RevealDirective],
+  imports: [CurrencyPipe, RevealDirective],
   templateUrl: './calendar.page.html',
   styleUrl: './calendar.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -62,5 +62,9 @@ export class CalendarPage {
 
   protected buyNow(): void {
     this.purchaseTriggered.set(true);
+  }
+
+  protected toWebp(path: string): string {
+    return path.replace(/\.jpe?g$/i, '.webp');
   }
 }
