@@ -44,6 +44,11 @@ h1 {
   }
 }
 
+.hero-line {
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
 .hero-subline {
   color: rgba(255, 255, 255, 0.85);
   font-size: clamp(0.95rem, 1.4vw, 1.15rem);
@@ -72,6 +77,17 @@ h1 {
 .intro {
   max-width: 720px;
   margin-bottom: 2.5rem;
+
+  h2 {
+    margin-bottom: 0.6rem;
+  }
+}
+
+.intro-text {
+  color: #5a5047;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 56ch;
 }
 
 .story-grid {
@@ -81,12 +97,15 @@ h1 {
 }
 
 .story-block {
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: rgba(255, 255, 255, 0.45);
-  transition: transform 0.5s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 
   &:hover {
     transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   }
 
   h3,

@@ -41,7 +41,7 @@ export class RevealDirective implements AfterViewInit, OnDestroy {
           }
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.05 }
     );
 
     observer.observe(this.hostEl.nativeElement);

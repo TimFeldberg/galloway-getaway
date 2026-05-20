@@ -2,7 +2,9 @@
   <div class="copy" appReveal="left">
     <p class="text-label">{{ content.eyebrow }}</p>
     <h1>{{ content.heading }}</h1>
-    <p>{{ content.text }}</p>
+    @for (p of content.paragraphs; track p) {
+      <p>{{ p }}</p>
+    }
   </div>
   <figure class="image" appReveal="right">
     <picture>
@@ -19,6 +21,13 @@
       />
     </picture>
   </figure>
+</section>
+
+<section class="section container about-why" appReveal="up">
+  <h2>{{ content.whyHeading }}</h2>
+  @for (p of content.whyParagraphs; track p) {
+    <p>{{ p }}</p>
+  }
 </section>
 
 <section class="section container">

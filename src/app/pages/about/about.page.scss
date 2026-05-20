@@ -1,3 +1,22 @@
+.about-why {
+  max-width: 720px;
+
+  h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    margin-bottom: 1.2rem;
+  }
+
+  p {
+    color: #5a5047;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .about-hero {
   display: grid;
   grid-template-columns: 1.2fr 1fr;

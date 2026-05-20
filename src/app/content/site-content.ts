@@ -50,7 +50,8 @@ export const siteContent = {
     },
     intro: {
       eyebrow: 'Was uns besonders macht',
-      heading: 'Vom ruhigen Weideland zur immersiven Farm Experience.'
+      heading: 'Vom ruhigen Weideland zur immersiven Farm Experience.',
+      text: 'Artgerechte Haltung, nachhaltige Qualität und echte Verbindungen – das sind die drei Säulen unserer kleinen Familienfarm nahe Bremerhaven.'
     },
     highlights: [
       {
@@ -78,11 +79,20 @@ export const siteContent = {
     seoDescription:
       'Lerne die Geschichte, Philosophie und Entwicklung von Galloway Getaway kennen – von der kleinen Herde zur Premium-Marke.',
     eyebrow: 'Unsere Geschichte',
-    heading: 'Von der Weide zum Premium-Erlebnis.',
-    text:
-      'Galloway Getaway steht für kompromisslose Tierhaltung, langsames Wachstum und eine Philosophie, die Natur, Genuss und Verantwortung miteinander verbindet.',
+    heading: 'Willkommen auf Unserem Hof.',
+    paragraphs: [
+      'Unsere kleine Farm befindet sich nahe Bremerhaven und wird seit Generationen von unserer Familie geführt. Mit viel Leidenschaft und Liebe zur Natur kümmern wir uns täglich um unsere Galloway-Rinder.',
+      'Uns ist wichtig, den Tieren ein ruhiges, artgerechtes Leben zu ermöglichen. Deshalb setzen wir auf viel Freiraum, natürliche Haltung und eine enge Verbindung zu jedem einzelnen Tier.',
+      'Über unsere Webseite könnt ihr unsere Herde kennenlernen, Patenschaften übernehmen oder euren Lieblingsrindern kleine Snacks schenken. So werdet ihr ein Teil unseres Hofalltags und unterstützt gleichzeitig unsere kleine Familienfarm.'
+    ],
     image: '/media/about.jpg',
     imageAlt: 'Galloway-Rind mit neugierigem Blick – Charakter der Farm',
+    whyHeading: 'Warum es dieses Projekt gibt.',
+    whyParagraphs: [
+      'Mit diesem neuen Herzensprojekt möchten wir unseren Galloway-Rindern eine andere Zukunft ermöglichen. Unser Ziel ist es, möglichst vielen Tieren ein Leben fern vom Schlachter zu schenken und ihnen stattdessen ein sicheres, ruhiges Zuhause auf unserer kleinen Farm zu bieten.',
+      'Gleichzeitig möchten wir Menschen die Möglichkeit geben, eine besondere Verbindung zu den Tieren aufzubauen. Ob durch eine Patenschaft, kleine Snacks oder das Verfolgen des Hofalltags – unsere Herde soll nicht nur uns, sondern auch euch Freude bereiten.',
+      'Seit diesem Jahr gehen wir deshalb mit diesem neuen Projekt einen anderen Weg: mehr Nähe zu den Tieren, mehr Transparenz und eine Gemeinschaft aus Menschen, die Tiere genauso lieben wie wir.'
+    ],
     timelineEyebrow: 'Philosophie in Etappen',
     milestones: [
       {

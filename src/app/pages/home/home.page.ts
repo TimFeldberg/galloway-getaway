@@ -39,28 +39,6 @@ export class HomePage implements AfterViewInit, OnDestroy {
         duration: 1.1,
         ease: 'power4.out'
       });
-
-      gsap.from('.hero-cta .btn, .hero-cta .btn-outline', {
-        y: 20,
-        opacity: 0,
-        duration: 0.85,
-        stagger: 0.12,
-        delay: 0.25,
-        ease: 'power3.out'
-      });
-
-      gsap.utils.toArray<HTMLElement>('.story-block').forEach((section) => {
-        gsap.from(section, {
-          opacity: 0,
-          y: 80,
-          duration: 0.95,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 78%'
-          }
-        });
-      });
     }, this.host.nativeElement);
   }
 
