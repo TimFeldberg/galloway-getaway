@@ -102,4 +102,18 @@
   .product-layout {
     grid-template-columns: 1fr;
   }
+
+  .controls button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .purchase-box {
+    order: -1;
+  }
+
+  .summary {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
 }

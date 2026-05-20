@@ -59,4 +59,22 @@
   .farm-layout {
     grid-template-columns: 1fr;
   }
+
+  .animal-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.6rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar { display: none; }
+
+    button {
+      flex-shrink: 0;
+      min-width: 140px;
+      min-height: 56px;
+    }
+  }
 }

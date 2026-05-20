@@ -30,6 +30,7 @@
 
   @include respond-to(lg) { padding: $space-xl $space-lg; }
   @include respond-to(md) { padding: $space-xl $space-md; }
+  @include respond-to(sm) { padding: $space-lg $space-md; }
 }
 
 @mixin btn-base {

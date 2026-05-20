@@ -117,7 +117,17 @@ h1 {
   }
 
   .hero-content {
-    padding-bottom: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+
+    .btn,
+    .btn-outline {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
   .media-wrap {
