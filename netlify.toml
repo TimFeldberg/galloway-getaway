@@ -7,6 +7,29 @@
   to     = "/index.html"
   status = 200
 
+# ─── Security Headers (alle Seiten) ───────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Clickjacking-Schutz: Seite darf nicht in einem iframe eingebettet werden
+    X-Frame-Options = "DENY"
+
+    # Verhindert MIME-Type-Sniffing (Angreifer kann keine JS-Dateien als Bilder tarnen)
+    X-Content-Type-Options = "nosniff"
+
+    # Referrer-Informationen begrenzen (kein Datenleck über externe Links)
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Permissions Policy: nur benötigte Browser-Features erlauben
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+    # HTTPS erzwingen (HSTS) – 1 Jahr, inkl. Subdomains
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+    # Content Security Policy: erlaubt nur eigene Ressourcen + Google Analytics
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
+
+# ─── Cache-Header für statische Assets ────────────────────────────────────────
 [[headers]]
   for = "/index.html"
   [headers.values]
@@ -21,3 +44,8 @@
   for = "/*.css"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
