@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { siteContent } from './content/site-content';
+import { authGuard } from './shared/guards/auth.guard';
 
 export const appRoutes: Routes = [
   {
@@ -41,10 +42,16 @@ export const appRoutes: Routes = [
     data: { animation: 'shop', description: siteContent.shop.seoDescription }
   },
   {
+    path: 'account',
+    title: 'Mein Account – Galloway Getaway',
+    canActivate: [authGuard],
+    loadComponent: () => import('./pages/account/account.page').then((m) => m.AccountPage),
+    data: { animation: 'account', description: 'Deine Patenschaften, Bestellungen und Profil auf Galloway Getaway.' }
+  },
+  {
     path: 'kalender',
-    title: siteContent.calendarPurchase.seoTitle,
-    loadComponent: () => import('./pages/calendar/calendar.page').then((m) => m.CalendarPage),
-    data: { animation: 'calendar', description: siteContent.calendarPurchase.seoDescription }
+    redirectTo: 'shop',
+    pathMatch: 'full'
   },
   {
     path: 'impressum',

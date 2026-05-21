@@ -1,0 +1,199 @@
+<div class="account-shell section container">
+
+  <!-- ── Page header ─────────────────────────────────────────────────────── -->
+  <div class="account-header">
+    <div class="account-avatar" aria-hidden="true">{{ initials() }}</div>
+    <div>
+      <h1 class="account-name">{{ user()?.name }}</h1>
+      <p class="account-email">{{ user()?.email }}</p>
+    </div>
+  </div>
+
+  <!-- ── Tab bar ──────────────────────────────────────────────────────────── -->
+  <nav class="tab-bar" role="tablist" aria-label="Account-Bereiche">
+    <button
+      role="tab"
+      [attr.aria-selected]="activeTab() === 'patenschaften'"
+      [class.active]="activeTab() === 'patenschaften'"
+      type="button"
+      (click)="setTab('patenschaften')"
+    >🐄 Meine Patenschaften</button>
+
+    <button
+      role="tab"
+      [attr.aria-selected]="activeTab() === 'bestellungen'"
+      [class.active]="activeTab() === 'bestellungen'"
+      type="button"
+      (click)="setTab('bestellungen')"
+    >📦 Meine Bestellungen</button>
+
+    <button
+      role="tab"
+      [attr.aria-selected]="activeTab() === 'profil'"
+      [class.active]="activeTab() === 'profil'"
+      type="button"
+      (click)="setTab('profil')"
+    >👤 Mein Profil</button>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- TAB 1: Patenschaften                                                  -->
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  @if (activeTab() === 'patenschaften') {
+    <div class="tab-panel" role="tabpanel">
+
+      @if (patenschaften().length === 0) {
+        <div class="empty-state">
+          <p>Du hast noch keine aktive Patenschaft.</p>
+          <a class="btn btn--farm" routerLink="/patenschaft">Patenschaft übernehmen</a>
+        </div>
+      }
+
+      @for (p of patenschaften(); track p.tier) {
+        @let animal = animalForPatenschaft(p); 
+        <article class="paten-card">
+
+          <div class="paten-card-img">
+            <picture>
+              <source [attr.srcset]="toWebp(animal.image)" type="image/webp" />
+              <img
+                [src]="animal.image"
+                [alt]="animal.imageAlt"
+                width="600" height="480"
+                loading="lazy" decoding="async"
+              />
+            </picture>
+          </div>
+
+          <div class="paten-card-body">
+            <div class="paten-card-head">
+              <h2>{{ animal.name }}</h2>
+              <span class="paket-badge paket-badge--{{ p.paket }}">{{ paketLabel(p.paket) }}</span>
+            </div>
+            <p class="animal-age">{{ animal.age }}</p>
+
+            <div class="badges">
+              @for (trait of animal.personality; track trait) {
+                <span class="badge">{{ trait }}</span>
+              }
+            </div>
+
+            <p class="paten-since">Patenschaft aktiv seit <strong>{{ formatDate(p.seit) }}</strong></p>
+
+            <div class="snack-row">
+              <span>🌿 Lieblingssnack: <strong>{{ animal.favoriteSnack }}</strong></span>
+              <a class="btn btn--warm btn--sm" routerLink="/shop">Snack schenken</a>
+            </div>
+
+            <div class="news-box">
+              <p class="news-label">Neuigkeiten von {{ animal.name }}</p>
+              <p class="news-text">
+                {{ animal.name }} hat heute die Sonne genossen und war besonders neugierig beim Morgenrundgang.
+              </p>
+            </div>
+
+            @if (p.paket === 'plus' || p.paket === 'premium') {
+              <button class="btn btn--outline-dark btn--sm" type="button" (click)="visitRequest(animal.name)">
+                📅 Besuchstermin anfragen
+              </button>
+            }
+          </div>
+
+        </article>
+      }
+    </div>
+  }
+
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- TAB 2: Bestellungen                                                   -->
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  @if (activeTab() === 'bestellungen') {
+    <div class="tab-panel" role="tabpanel">
+
+      @if (bestellungen().length === 0) {
+        <div class="empty-state">
+          <p>Du hast noch keine Bestellungen aufgegeben.</p>
+          <a class="btn btn--farm" routerLink="/shop">Zum Shop</a>
+        </div>
+      }
+
+      @for (b of bestellungen(); track b.id) {
+        <article class="order-card">
+          <div class="order-card-head">
+            <div>
+              <span class="order-id">{{ b.id }}</span>
+              <span class="order-date">{{ formatDate(b.datum) }}</span>
+            </div>
+            <span class="status-badge status-badge--{{ b.status }}">{{ statusLabel(b) }}</span>
+          </div>
+
+          <ul class="order-items">
+            @for (a of b.artikel; track a.name) {
+              <li>
+                <span class="item-name">{{ a.qty }}× {{ a.name }}</span>
+                <span class="item-price">{{ (a.qty * a.price) | number: '1.2-2' }} €</span>
+              </li>
+            }
+          </ul>
+
+          @if (b.typ === 'snack' && b.status === 'verarbeitung') {
+            <p class="order-hint">
+              Dein Snack wird in den nächsten 1–2 Tagen an dein Patentier verfüttert. Wir filmen das für dich!
+            </p>
+          }
+
+          @if (b.typ === 'snack' && b.status === 'gefuettert' && b.videoUrl) {
+            <div class="video-preview" (click)="openVideo(b.videoUrl!)">
+              <div class="video-thumb-placeholder">
+                <span class="play-icon" aria-label="Video abspielen">▶</span>
+                <p>Video ansehen</p>
+              </div>
+            </div>
+          }
+
+          @if (b.typ === 'snack' && b.status === 'gefuettert' && !b.videoUrl) {
+            <p class="order-hint">
+              Das Video zu deiner Bestellung wird bald hier erscheinen.
+            </p>
+          }
+
+        </article>
+      }
+    </div>
+  }
+
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- TAB 3: Profil                                                         -->
+  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  @if (activeTab() === 'profil') {
+    <div class="tab-panel profil-panel" role="tabpanel">
+
+      <div class="profil-avatar-block">
+        <div class="profil-avatar-lg" aria-hidden="true">{{ initials() }}</div>
+        <div>
+          <p class="profil-name">{{ user()?.name }}</p>
+          <p class="profil-email">{{ user()?.email }}</p>
+        </div>
+      </div>
+
+      <div class="profil-actions">
+        <button class="btn btn--outline-dark" type="button" (click)="changePassword()">
+          🔑 Passwort ändern
+        </button>
+        <button class="btn btn--danger" type="button" (click)="logout()">
+          Ausloggen
+        </button>
+      </div>
+
+    </div>
+  }
+
+</div>
+
+<!-- ── Video Overlay ────────────────────────────────────────────────────────── -->
+@if (videoUrl()) {
+  <app-video-overlay
+    [videoUrl]="videoUrl()!"
+    (closed)="closeVideo()"
+  />
+}

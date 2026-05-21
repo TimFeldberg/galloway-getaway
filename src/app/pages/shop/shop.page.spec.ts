@@ -4,6 +4,7 @@ import { ShopPage } from './shop.page';
 
 describe('ShopPage', () => {
   beforeEach(async () => {
+    localStorage.clear();
     await TestBed.configureTestingModule({
       imports: [ShopPage],
       providers: [
@@ -27,16 +28,16 @@ describe('ShopPage', () => {
   it('addToCart() increments count and total', () => {
     const fixture = TestBed.createComponent(ShopPage);
     const comp = fixture.componentInstance as any;
-    comp.addToCart(14.99);
-    comp.addToCart(14.99);
+    comp.addToCart('Fleischpaket', 14.99);
+    comp.addToCart('Fleischpaket', 14.99);
     expect(comp.cartCount()).toBe(2);
     expect(comp.cartTotal()).toBe(29.98);
   });
 
-  it('subtotal reflects cartTotal', () => {
+  it('cartTotal reflects multiple items', () => {
     const fixture = TestBed.createComponent(ShopPage);
     const comp = fixture.componentInstance as any;
-    comp.addToCart(9.99);
-    expect(comp.subtotal()).toBe(9.99);
+    comp.addToCart('Wurst', 9.99);
+    expect(comp.cartTotal()).toBe(9.99);
   });
 });

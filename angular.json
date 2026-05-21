@@ -38,6 +38,9 @@
             ],
             "styles": [
               "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/netlify-identity-widget/build/netlify-identity-widget.js"
             ]
           },
           "configurations": {

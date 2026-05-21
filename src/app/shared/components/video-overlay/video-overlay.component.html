@@ -1,0 +1,15 @@
+<div class="overlay-backdrop" (click)="onBackdropClick($event)" role="dialog" aria-modal="true" aria-label="Video">
+  <div class="overlay-box">
+    <button class="overlay-close" type="button" (click)="close()" aria-label="Overlay schließen">✕</button>
+    <!-- TODO: echtes Video einfügen — videoUrl wird als Input übergeben -->
+    <video
+      #videoEl
+      class="overlay-video"
+      [src]="videoUrl()"
+      controls
+      autoplay
+      playsinline
+      preload="metadata"
+    ></video>
+  </div>
+</div>

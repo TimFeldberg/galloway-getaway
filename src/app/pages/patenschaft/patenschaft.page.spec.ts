@@ -26,7 +26,8 @@ describe('PatenschaftPage', () => {
     expect(comp.sent()).toBe(false);
   });
 
-  it('submit() with valid form sets sent to true', () => {
+  it('submit() with valid form sets sent to true', async () => {
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response());
     const fixture = TestBed.createComponent(PatenschaftPage);
     const comp = fixture.componentInstance as any;
     comp.form.setValue({
@@ -37,6 +38,9 @@ describe('PatenschaftPage', () => {
       message: ''
     });
     comp.submit();
+    // wait for fetch promise to resolve and .finally() to run
+    await Promise.resolve();
+    await Promise.resolve();
     expect(comp.sent()).toBe(true);
   });
 

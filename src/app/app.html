@@ -37,11 +37,46 @@
     }
   </nav>
 
-  <a
-    class="header-cta"
-    [class.visible]="ctaVisible()"
-    routerLink="/patenschaft"
-  >Patenschaft</a>
+  <div class="header-actions">
+    <a
+      class="header-cta"
+      [class.visible]="ctaVisible()"
+      routerLink="/patenschaft"
+    >Patenschaft</a>
+
+    <!-- Account button -->
+    @if (!isLoggedIn()) {
+      <button class="account-btn account-btn--login" type="button" (click)="login()" aria-label="Anmelden">
+        Anmelden
+      </button>
+    } @else {
+      <div class="account-menu">
+        <button
+          class="account-btn account-btn--avatar"
+          type="button"
+          (click)="toggleAccountDropdown()"
+          [attr.aria-expanded]="accountDropdown()"
+          aria-label="Account-Menü öffnen"
+        >{{ userInitials }}</button>
+        @if (accountDropdown()) {
+          <div class="account-dropdown" role="menu">
+            <a routerLink="/account" role="menuitem" (click)="closeAccountDropdown()">Mein Account</a>
+            <button type="button" role="menuitem" (click)="logout()">Ausloggen</button>
+          </div>
+        }
+      </div>
+    }
+
+    <a class="cart-btn" routerLink="/shop" aria-label="Warenkorb">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+    </svg>
+    @if (cartCount() > 0) {
+      <span class="cart-badge">{{ cartCount() }}</span>
+    }
+  </a>
+  </div>
 </header>
 
 <main id="main-content" class="page-shell" [@routeTransition]="prepareRoute(outlet)">
@@ -58,7 +93,6 @@
     <a routerLink="/farm">Unsere Tiere</a>
     <a routerLink="/patenschaft">Patenschaft</a>
     <a routerLink="/shop">Shop</a>
-    <a routerLink="/kalender">Kalender</a>
     <a routerLink="/ueber-uns">Über uns</a>
     <a routerLink="/partnerschaften">B2B-Partnerschaften</a>
   </nav>

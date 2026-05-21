@@ -13,6 +13,8 @@ import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } fro
 import { filter, startWith } from 'rxjs/operators';
 import { siteContent } from './content/site-content';
 import { CookieConsentComponent } from './app/cookie-consent/cookie-consent.component';
+import { CartService } from './shared/services/cart.service';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -58,6 +60,11 @@ export class App {
   private readonly destroyRef = inject(DestroyRef);
 
   protected readonly menuOpen = signal(false);
+  protected readonly accountDropdown = signal(false);
+  private readonly authService = inject(AuthService);
+  protected readonly isLoggedIn = this.authService.isLoggedIn;
+  protected readonly currentUser = this.authService.currentUser;
+  protected readonly cartCount = inject(CartService).cartCount;
   protected readonly scrolled = signal(false);
   protected readonly headerHovered = signal(false);
   protected readonly ctaVisible = signal(false);
@@ -105,6 +112,13 @@ export class App {
     this.ctaVisible.set(window.scrollY > 200);
   }
 
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(e: MouseEvent): void {
+    if (this.accountDropdown() && !(e.target as HTMLElement).closest('.account-menu')) {
+      this.accountDropdown.set(false);
+    }
+  }
+
   protected onHeaderEnter(): void {
     this.headerHovered.set(true);
   }
@@ -119,6 +133,28 @@ export class App {
 
   protected closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  protected toggleAccountDropdown(): void {
+    this.accountDropdown.update((v) => !v);
+  }
+
+  protected closeAccountDropdown(): void {
+    this.accountDropdown.set(false);
+  }
+
+  protected login(): void {
+    this.authService.login();
+  }
+
+  protected logout(): void {
+    this.accountDropdown.set(false);
+    this.authService.logout();
+  }
+
+  protected get userInitials(): string {
+    const name = this.currentUser()?.name ?? '';
+    return name.split(' ').map((w) => w[0]?.toUpperCase() ?? '').slice(0, 2).join('');
   }
 
   protected prepareRoute(outlet: RouterOutlet): string {

@@ -31,8 +31,7 @@ export const siteContent = {
     { label: 'Unsere Tiere', href: '/farm' },
     { label: 'Patenschaft', href: '/patenschaft' },
     { label: 'Shop', href: '/shop' },
-    { label: 'Über uns', href: '/ueber-uns' },
-    { label: 'Kalender', href: '/kalender' }
+    { label: 'Über uns', href: '/ueber-uns' }
   ],
   home: {
     seoTitle: 'Galloway Getaway – Tierpatenschaften & Direktverkauf',
@@ -96,19 +95,19 @@ export const siteContent = {
     timelineEyebrow: 'Philosophie in Etappen',
     milestones: [
       {
+        year: '2000',
+        title: 'Der Hof entsteht',
+        text: 'Unsere Familie beginnt mit der Landwirtschaft – Ruhe, Natur und Liebe zu den Tieren stehen von Anfang an im Mittelpunkt.'
+      },
+      {
         year: '2014',
-        title: 'Beginn mit zwei Tieren',
-        text: 'Aus einer kleinen Vision entstand eine Farm, die Natur, Ruhe und Qualität vereint.'
+        title: 'Die ersten Galloways',
+        text: 'Mara und Bram kommen auf den Hof – und prägen von da an den Charakter unserer kleinen Farm.'
       },
       {
-        year: '2018',
-        title: 'Erste Partnerschaften',
-        text: 'Regionale Gastronomie und Direktkund:innen wurden Teil unserer Qualitätskette.'
-      },
-      {
-        year: '2023',
-        title: 'Galloway Getaway als Marke',
-        text: 'Mit emotionalem Storytelling und Farm-Erlebnissen wurde aus der Farm eine Erlebniswelt.'
+        year: '2026',
+        title: 'Galloway Getaway wird geboren',
+        text: 'Mit dem Start des Patenschaftsprojekts öffnen wir unseren Hof für alle, die Tiere lieben und Teil unserer Herde werden wollen.'
       }
     ]
   },

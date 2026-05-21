@@ -4,7 +4,12 @@
       <p class="text-label">{{ content.eyebrow }}</p>
       <h1>{{ content.heading }}</h1>
     </div>
-    <div class="cart-pill" aria-live="polite">{{ content.cartLabel }}: {{ cartCount() }} · {{ subtotal() | currency: 'EUR' }}</div>
+    <div class="cart-pill" aria-live="polite">
+      <span>{{ content.cartLabel }}: {{ cartCount() }} &middot; {{ cartTotal() | currency: 'EUR' }}</span>
+      @if (cartCount() > 0) {
+        <button class="btn btn--farm" type="button" (click)="openCheckout()"><span>Zur Kasse</span></button>
+      }
+    </div>
   </div>
 
   <div class="product-grid">
@@ -26,10 +31,195 @@
           <p>{{ product.description }}</p>
           <div class="foot">
             <strong>{{ product.price | currency: 'EUR' }}</strong>
-            <button class="btn-outline" type="button" (click)="addToCart(product.price)">{{ content.addToCartLabel }}</button>
+            <button class="btn-outline" type="button" (click)="addToCart(product.name, product.price)">{{ content.addToCartLabel }}</button>
           </div>
         </div>
       </article>
     }
   </div>
 </section>
+
+<!-- ── Kalender ──────────────────────────────────────────────────────────── -->
+<section class="section container calendar-section">
+
+  <div class="cal-section-head" appReveal="up">
+    <p class="text-label">Limitierte Auflage · 2026</p>
+    <h2>Play-Mooo-Kalender</h2>
+    <p class="cal-intro">12 Monate, 12 Galloway-Momente – für Zuhause, als Geschenk oder im Hofladen.</p>
+  </div>
+
+  <div class="cal-layout">
+
+    <!-- Bildvorschau mit Overlay + Dot-Nav -->
+    <div class="cal-preview" appReveal="left">
+      <div class="cal-preview-card" [@previewSwap]="calPreviewIdx()">
+        <picture>
+          <source [attr.srcset]="toWebp(activeMonth().image)" type="image/webp" />
+          <img
+            [src]="activeMonth().image"
+            width="1000"
+            height="1280"
+            [alt]="activeMonth().title + ' – Play-Mooo-Kalender'"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <div class="cal-img-overlay">
+          <p class="cal-overlay-month">{{ activeMonth().month }}</p>
+          <h3>{{ activeMonth().title }}</h3>
+          <p>{{ activeMonth().text }}</p>
+        </div>
+      </div>
+
+      <div class="cal-nav">
+        <button type="button" class="cal-nav-arrow" (click)="calPrev()" aria-label="Vorheriger Monat">&#8592;</button>
+        <div class="cal-dots" role="tablist">
+          @for (m of calMonths; track m.month; let i = $index) {
+            <button
+              class="cal-dot"
+              [class.active]="calPreviewIdx() === i"
+              type="button"
+              (click)="calGoTo(i)"
+              [attr.aria-label]="m.month"
+            ></button>
+          }
+        </div>
+        <button type="button" class="cal-nav-arrow" (click)="calNext()" aria-label="Nächster Monat">&#8594;</button>
+      </div>
+    </div>
+
+    <!-- Beschreibung + Kaufbereich -->
+    <article class="cal-copy" appReveal="right">
+      <ul class="cal-features">
+        @for (f of calContent.features; track f) {
+          <li>{{ f }}</li>
+        }
+      </ul>
+
+      <div class="cal-purchase-box">
+        <div class="cal-price-line">
+          <span>Preis pro Kalender</span>
+          <strong class="cal-price">{{ calUnitPrice | currency: 'EUR' }}</strong>
+        </div>
+
+        <div class="cal-qty-line">
+          <div class="cal-stepper">
+            <button type="button" (click)="calDecQty()" aria-label="Weniger">−</button>
+            <span>{{ calQty() }}</span>
+            <button type="button" (click)="calIncQty()" aria-label="Mehr">+</button>
+          </div>
+          <span class="cal-total">Gesamt: <strong>{{ calTotal() | currency: 'EUR' }}</strong></span>
+        </div>
+
+        <button class="btn btn--farm cal-buy-btn" type="button" (click)="addCalendarToCart()">
+          <span>In den Warenkorb</span>
+        </button>
+
+        @if (calAdded()) {
+          <p class="cal-added-note">
+            ✓ {{ calQty() }}× Kalender wurde{{ calQty() > 1 ? 'n' : '' }} zum Warenkorb hinzugefügt
+          </p>
+        }
+      </div>
+    </article>
+
+  </div>
+</section>
+
+@if (orderSent()) {
+  <section id="order-confirm" class="section container order-confirm" appReveal="up">
+
+    <!-- Snack-Block -->
+    @if (confirmedHasSnacks()) {
+      <div class="confirm-box confirm-box--snack">
+        <p class="text-label">Danke für deinen Snack!</p>
+        <h2>🌿 Auf dem Weg zur Herde</h2>
+        <p>
+          Dein Snack wird in den nächsten 1–2 Tagen an unsere Galloways verfüttert.
+          Wir filmen das für dich – das Video erscheint dann in deinem Account.
+        </p>
+        <a class="btn btn--farm" routerLink="/account"><span>Zu meinem Account</span></a>
+      </div>
+    }
+
+    <!-- Kalender-Block -->
+    @if (confirmedHasCalendar()) {
+      <div class="confirm-box confirm-box--kalender">
+        <p class="text-label">Bestellung eingegangen</p>
+        <h2>📦 Vielen Dank!</h2>
+        <p>Dein Kalender wird in den nächsten 3–5 Werktagen zu dir geliefert.</p>
+        <p class="confirm-shipping">Du erhältst eine E-Mail zur Bestätigung.</p>
+      </div>
+    }
+
+    @if (confirmedItems()) {
+      <p class="confirm-items"><strong>Bestellt:</strong> {{ confirmedItems() }}</p>
+    }
+  </section>
+}
+
+@if (showCheckout()) {
+  <section id="checkout-section" class="section container checkout-section" appReveal="up">
+    <h2>Deine Bestellung</h2>
+
+    <div class="order-summary">
+      <table class="summary-table">
+        <thead>
+          <tr><th>Artikel</th><th>Menge</th><th>Preis</th></tr>
+        </thead>
+        <tbody>
+          @for (item of cart(); track item.name) {
+            <tr>
+              <td>{{ item.name }}</td>
+              <td class="qty-cell">
+                <button class="qty-btn" type="button" (click)="removeFromCart(item.name)">&#8722;</button>
+                <span>{{ item.qty }}</span>
+                <button class="qty-btn" type="button" (click)="addToCart(item.name, item.price)">&#43;</button>
+              </td>
+              <td>{{ item.price * item.qty | currency: 'EUR' }}</td>
+            </tr>
+          }
+        </tbody>
+        <tfoot>
+          <tr><td colspan="2"><strong>Gesamt</strong></td><td><strong>{{ cartTotal() | currency: 'EUR' }}</strong></td></tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <form class="order-form" [formGroup]="form" (ngSubmit)="submit()" name="bestellung" netlify>
+      <input type="hidden" name="form-name" value="bestellung" />
+      <input type="hidden" name="warenkorb" [value]="cartSummary()" />
+
+      <div class="field">
+        <label for="order-name">Name *</label>
+        <input id="order-name" type="text" formControlName="name" autocomplete="name" />
+        @if (form.controls.name.invalid && form.controls.name.touched) {
+          <span class="field-error">Bitte vollständigen Namen eingeben (mind. 2 Zeichen).</span>
+        }
+      </div>
+
+      <div class="field">
+        <label for="order-email">E-Mail *</label>
+        <input id="order-email" type="email" formControlName="email" autocomplete="email" />
+        @if (form.controls.email.invalid && form.controls.email.touched) {
+          <span class="field-error">Bitte gültige E-Mail-Adresse eingeben.</span>
+        }
+      </div>
+
+      <div class="field">
+        <label for="order-address">Lieferadresse *</label>
+        <textarea id="order-address" formControlName="address" rows="3" autocomplete="street-address"></textarea>
+        @if (form.controls.address.invalid && form.controls.address.touched) {
+          <span class="field-error">Bitte vollständige Lieferadresse eingeben (mind. 10 Zeichen).</span>
+        }
+      </div>
+
+      <div class="field">
+        <label for="order-notes">Anmerkungen</label>
+        <textarea id="order-notes" formControlName="notes" rows="2"></textarea>
+      </div>
+
+      <button class="btn btn--farm" type="submit"><span>Jetzt bestellen</span></button>
+    </form>
+  </section>
+}

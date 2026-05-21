@@ -75,15 +75,24 @@
 <section id="paten-form" class="paten-form-section section container">
   <h2 appReveal="up">{{ content.formTitle }}</h2>
 
-  <form class="paten-form" [formGroup]="form" (ngSubmit)="submit()" appReveal="up" novalidate>
+  <form class="paten-form" [formGroup]="form" (ngSubmit)="submit()" appReveal="up" novalidate
+        name="patenschaft" netlify>
+    <input type="hidden" name="form-name" value="patenschaft" />
+
     <div class="form-row">
       <label>
         {{ content.formLabels.name }}
         <input type="text" formControlName="name" autocomplete="name" />
+        @if (form.controls.name.invalid && form.controls.name.touched) {
+          <span class="field-error">Bitte vollständigen Namen eingeben (mind. 2 Zeichen).</span>
+        }
       </label>
       <label>
         {{ content.formLabels.email }}
         <input type="email" formControlName="email" autocomplete="email" />
+        @if (form.controls.email.invalid && form.controls.email.touched) {
+          <span class="field-error">Bitte gültige E-Mail-Adresse eingeben.</span>
+        }
       </label>
     </div>
 
@@ -96,6 +105,9 @@
             <option [value]="opt.value">{{ opt.label }}</option>
           }
         </select>
+        @if (form.controls.animal.invalid && form.controls.animal.touched) {
+          <span class="field-error">Bitte ein Tier auswählen.</span>
+        }
       </label>
       <label>
         {{ content.formLabels.package }}
@@ -115,9 +127,28 @@
     <button class="btn btn--farm" type="submit"><span>{{ content.formLabels.submit }}</span></button>
 
     @if (sent()) {
-      <p class="form-success">{{ content.formLabels.success }}</p>
+      <div class="form-success">
+        <p>{{ content.formLabels.success }}</p>
+        @if (isLoggedIn()) {
+          <p class="account-hint">
+            Nach Bestätigung durch uns erscheint deine Patenschaft automatisch in deinem Account.
+          </p>
+        }
+      </div>
     }
   </form>
+
+  @if (!isLoggedIn() && !sent()) {
+    <div class="account-nudge">
+      <p>
+        Erstelle einen Account um deine Patenschaft zu verwalten
+        und Updates zu deinem Tier zu erhalten.
+      </p>
+      <button class="btn btn--outline-paten" type="button" (click)="login()">
+        Jetzt registrieren
+      </button>
+    </div>
+  }
 </section>
 
 <section class="paten-faq section container">

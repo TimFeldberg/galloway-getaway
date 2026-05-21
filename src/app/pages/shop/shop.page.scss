@@ -7,6 +7,9 @@
 }
 
 .cart-pill {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.12);
   padding: 0.6rem 1rem;
   letter-spacing: 0.05em;
@@ -81,5 +84,412 @@
       width: 100%;
       justify-content: center;
     }
+  }
+}
+
+// ─── Checkout ──────────────────────────────────────────────────────
+
+.checkout-section {
+  max-width: 760px;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+
+  th {
+    text-align: left;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5a5047;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+  }
+
+  td {
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    vertical-align: middle;
+  }
+
+  tfoot td {
+    border-top: 2px solid rgba(0,0,0,0.12);
+    border-bottom: none;
+    padding-top: 0.75rem;
+  }
+}
+
+.qty-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(0,0,0,0.18);
+  background: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover { background: #f0ebe4; }
+}
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 540px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  label {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #5a5047;
+  }
+
+  input, textarea {
+    border: 1px solid rgba(0,0,0,0.18);
+    padding: 0.65rem 0.75rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: #fff;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: 2px solid #4a7c59;
+      outline-offset: 1px;
+    }
+  }
+
+  textarea { resize: vertical; }
+}
+
+.field-error {
+  color: #c0392b;
+  font-size: 0.82rem;
+}
+
+// ── Kalender ────────────────────────────────────────────────────────────────
+
+.calendar-section {
+  background: #ede6dc;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 3.5rem 3rem;
+  margin-top: 2rem;
+}
+
+.cal-section-head {
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+
+  h2 { margin: 0.35rem 0 0.6rem; }
+
+  .cal-intro {
+    color: #5a5047;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+}
+
+.cal-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+// ── Bildvorschau ────────────────────────────────────────────────────────────
+
+.cal-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cal-preview-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+
+  picture { display: block; }
+
+  img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.cal-img-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, transparent 100%);
+  color: #fff;
+
+  .cal-overlay-month {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0 0 0.3rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin: 0 0 0.35rem;
+    color: #fff;
+  }
+
+  p {
+    font-size: 0.88rem;
+    opacity: 0.85;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.cal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0.25rem 0;
+}
+
+.cal-nav-arrow {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.35);
+  }
+}
+
+.cal-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &.active {
+    background: #4a7c59;
+    transform: scale(1.35);
+  }
+
+  &:hover:not(.active) {
+    background: rgba(0, 0, 0, 0.45);
+  }
+}
+
+// ── Kaufbereich ─────────────────────────────────────────────────────────────
+
+.cal-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-top: 0.5rem;
+}
+
+.cal-features {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 2rem;
+  padding: 0;
+
+  li {
+    position: relative;
+    padding-left: 1.3rem;
+    font-size: 1rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4a7c59;
+    }
+  }
+}
+
+.cal-purchase-box {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.cal-price-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  color: #5a5047;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+
+  .cal-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+.cal-qty-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  .cal-total {
+    font-size: 0.9rem;
+    color: #5a5047;
+
+    strong { color: #1a1a1a; }
+  }
+}
+
+.cal-stepper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 4px;
+  overflow: hidden;
+
+  button {
+    background: transparent;
+    border: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease;
+
+    &:hover { background: rgba(0, 0, 0, 0.06); }
+  }
+
+  span {
+    width: 36px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+  }
+}
+
+.cal-buy-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.cal-added-note {
+  margin: 0;
+  color: #4a7c59;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .calendar-section {
+    padding: 2.5rem 1.5rem;
+    border-radius: 8px;
+  }
+
+  .cal-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .cal-copy { order: -1; }
+}
+
+// ── Bestellbestätigung ───────────────────────────────────────────────────────
+
+.order-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.confirm-box {
+  max-width: 560px;
+  padding: 2rem;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-left: 4px solid #4a7c59;
+  border-radius: 0 8px 8px 0;
+
+  h2 { margin: 0.5rem 0 0.75rem; }
+  p { color: #5a5047; line-height: 1.7; margin: 0 0 0.5rem; }
+
+  &--snack   { border-left-color: #4a7c59; }
+  &--kalender { border-left-color: #b8774a; }
+
+  .confirm-items {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .confirm-shipping {
+    font-size: 0.9rem;
+    color: #b8774a;
+    font-weight: 600;
   }
 }
