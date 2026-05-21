@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { RevealDirective } from '../../shared/directives/reveal.directive';
 import { siteContent } from '../../content/site-content';
 import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-patenschaft-page',
-  imports: [ReactiveFormsModule, RevealDirective],
+  imports: [ReactiveFormsModule, RevealDirective, RouterLink],
   templateUrl: './patenschaft.page.html',
   styleUrl: './patenschaft.page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -44,7 +44,7 @@
             }
           </div>
           <p class="snack-hint">🌿 Lieblingssnack: <strong>{{ animal.favoriteSnack }}</strong></p>
-          <a class="btn btn--farm" href="#paten-form">Patenschaft für {{ animal.name }}</a>
+          <a class="btn btn--farm" [routerLink]="[]" fragment="paten-form">Patenschaft für {{ animal.name }}</a>
         </div>
       </article>
     }
@@ -66,7 +66,7 @@
             <li>{{ feature }}</li>
           }
         </ul>
-        <a class="btn" [class.btn--farm]="pkg.featured" href="#paten-form"><span>Paket wählen</span></a>
+        <a class="btn" [class.btn--farm]="pkg.featured" [routerLink]="[]" fragment="paten-form"><span>Paket wählen</span></a>
       </div>
     }
   </div>
